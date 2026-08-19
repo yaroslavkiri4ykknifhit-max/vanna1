@@ -1797,3 +1797,156 @@ body { background: var(--paper); color: var(--text-body); font-family: var(--fon
   .faq-box-wrap { padding: 4px 16px; }
   .faq-toggle-trigger { font-size: .77rem; line-height: 1.2; }
 }
+
+/* ========================================================================
+   Proportion pass: readable type, deliberate spacing, stable composition
+   ======================================================================== */
+:root {
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+  --body-size: 16px;
+}
+
+body { font-size: var(--body-size); line-height: 1.55; }
+.container { max-width: 1180px; }
+
+.site-navbar { padding: 20px 0; }
+.brand-icon-wrap { height: 38px; width: 38px; }
+.brand-icon-wrap img { height: 27px; width: 27px; }
+.brand-name { font-size: .82rem; letter-spacing: .01em; }
+.brand-location { font-size: .62rem; letter-spacing: .025em; }
+.main-nav { gap: 28px; }
+.main-nav a { font-size: .68rem; letter-spacing: .025em; }
+.header-phone-val { font-size: 1rem; }
+.header-sub-cta { font-size: .62rem; letter-spacing: .015em; }
+
+.hero-section { padding: 34px 0 0; }
+.hero-grid { align-items: start; gap: 28px; grid-template-columns: minmax(0, 1.04fr) minmax(420px, .96fr); min-height: 665px; }
+.hero-copy { align-self: start !important; padding: 78px 0 0 !important; position: relative; z-index: 3; }
+.hero-pill-badge { font-size: .72rem; letter-spacing: .045em; margin-bottom: 22px; }
+.hero-title { font-size: clamp(3rem, 4.45vw, 4.25rem); font-weight: 850; letter-spacing: -.052em; line-height: .98; margin-bottom: 21px; max-width: 620px; }
+.hero-description { font-size: 1.05rem; line-height: 1.55; margin-bottom: 27px; max-width: 535px; }
+.hero-meta-stats { max-width: 540px; }
+.hero-stat-box { min-height: 62px; padding: 0 13px; }
+.hero-stat-number { font-size: 1.15rem; letter-spacing: -.04em; }
+.hero-stat-lbl { font-size: .67rem; line-height: 1.3; max-width: 95px; }
+
+.hero-side { align-self: start; height: 630px; min-height: 0; position: relative; }
+.hero-visual { height: 450px; right: -8px; top: 2px; width: 448px; }
+.hero-visual::before { height: 340px; left: 23px; top: 20px; width: 340px; }
+.orbit-one { height: 390px; left: 53px; top: -2px; width: 390px; }
+.orbit-two { height: 292px; left: 101px; top: 46px; width: 292px; }
+.hero-side::after { font-size: .6rem; right: -15px; top: 83px; }
+.hero-form-card { bottom: 0; left: -34px; margin: 0; max-width: 520px; padding: 27px 28px 23px; position: absolute; }
+.hero-form-card::before { margin-bottom: 16px; }
+.hero-form-badge { font-size: .59rem; height: 58px; padding: 15px 7px; right: 23px; top: -23px; width: 58px; }
+.hero-form-title { font-size: 1.45rem; letter-spacing: -.04em; line-height: 1.16; text-transform: none; }
+.hero-form-sub { font-size: .83rem; margin-bottom: 17px; }
+.form-group-item { margin-bottom: 14px; }
+.form-lbl { font-size: .72rem; letter-spacing: .015em; text-transform: none; }
+.radio-content-box { font-size: .72rem; min-height: 39px; }
+.calc-price-result { margin-bottom: 16px; padding: 10px 12px; }
+.calc-price-result-txt { font-size: .74rem; }
+.calc-price-result-val { font-size: 1.08rem; }
+.btn { font-size: .73rem; letter-spacing: .015em; min-height: 43px; }
+.direct-messenger-link { font-size: .72rem; }
+
+.trust-strip-wrapper { padding: 0 0 42px; }
+.trust-strip-item { padding: 18px 28px; }
+.trust-strip-title { font-size: .8rem; }
+.trust-strip-sub { font-size: .68rem; }
+
+.section { padding: 96px 0; }
+.section-header-center { margin-bottom: 46px; }
+.section-tag { font-size: .7rem; letter-spacing: .06em; }
+.section-title { font-size: clamp(2.2rem, 3.4vw, 3.15rem); letter-spacing: -.05em; line-height: 1.04; margin-bottom: 18px; }
+.section-subtitle { font-size: 1rem; line-height: 1.55; }
+.services-section { padding-top: 84px !important; }
+.services-container { box-shadow: 0 14px 34px rgba(35,32,45,.08); }
+.service-box-card { min-height: 360px; }
+.service-box-photo { height: 83px; padding: 30px 32px 0; }
+.service-box-content { padding: 20px 32px 31px; }
+.service-box-title { font-size: 1.48rem; letter-spacing: -.04em; line-height: 1.08; }
+.service-box-desc { font-size: .88rem; line-height: 1.55; margin-bottom: 22px; }
+.service-box-price { font-size: 1.05rem; margin-bottom: 18px; }
+.service-box-card .btn { min-height: 38px; }
+
+.advantages-row { padding: 0 12px; }
+.advantage-cell { gap: 13px; min-height: 126px; padding: 23px 15px; }
+.advantage-icon-circle { font-size: 1.65rem; }
+.advantage-headline { font-size: .77rem; line-height: 1.25; }
+.advantage-subline { font-size: .68rem; line-height: 1.4; }
+
+.two-col-layout { gap: 34px; }
+.works-wrapper-box { padding: 34px; }
+.consultation-form-card { padding: 36px; }
+.consultation-form-title { font-size: 1.72rem; line-height: 1.08; }
+.consultation-form-desc { font-size: .94rem; line-height: 1.55; }
+.photo-cell { height: 330px; }
+.contact-actions-note { font-size: .72rem; }
+
+#master { padding: 100px 0; }
+.master-profile-card { gap: 54px; grid-template-columns: 235px 1fr; }
+.master-photo-box { min-height: 230px; padding: 18px 0 18px 22px; }
+.master-monogram { font-size: 2.6rem; height: 102px; width: 102px; }
+.master-quote { font-size: 1.45rem; letter-spacing: -.035em; line-height: 1.32; }
+.npd-info-badge { font-size: .86rem; line-height: 1.5; padding: 15px 18px; }
+.city-pill-badge { font-size: .72rem; padding: 7px 9px; }
+
+.faq-box-wrap { padding: 9px 30px; }
+.faq-toggle-trigger { font-size: 1rem; letter-spacing: 0; padding: 23px 0; text-transform: none; }
+.faq-drawer-content { font-size: .94rem; line-height: 1.6; }
+
+@media (max-width: 991px) {
+  .hero-grid { grid-template-columns: 1fr; min-height: 0; }
+  .hero-copy { padding-top: 38px !important; }
+  .hero-side { height: 575px; margin: 0 auto; max-width: 590px; width: 100%; }
+  .hero-form-card { left: 0; max-width: 500px; }
+  .hero-visual { right: 0; }
+}
+
+@media (max-width: 767px) {
+  body { font-size: 16px; }
+  .site-navbar { padding: 15px 0; }
+  .brand-icon-wrap { height: 34px; width: 34px; }
+  .brand-icon-wrap img { height: 24px; width: 24px; }
+  .brand-name { font-size: .7rem; }
+  .brand-location { font-size: .54rem; }
+  .header-phone-val { font-size: .87rem; }
+  .header-sub-cta { font-size: .55rem; }
+  .hero-section { padding-top: 15px; }
+  .hero-copy { padding-top: 35px !important; }
+  .hero-pill-badge { font-size: .62rem; margin-bottom: 17px; }
+  .hero-title { font-size: clamp(2.45rem, 12.2vw, 3.05rem); letter-spacing: -.055em; line-height: .98; }
+  .hero-description { font-size: .95rem; line-height: 1.5; }
+  .hero-stat-box { min-height: 56px; padding: 0 8px; }
+  .hero-stat-number { font-size: 1rem; }
+  .hero-stat-lbl { font-size: .6rem; }
+  .hero-side { height: 515px; margin-top: 15px; }
+  .hero-visual { height: 300px; right: -7px; width: 310px; }
+  .hero-visual::before { height: 230px; left: 20px; top: 15px; width: 230px; }
+  .orbit-one { height: 260px; left: 35px; top: -1px; width: 260px; }
+  .orbit-two { height: 192px; left: 68px; top: 33px; width: 192px; }
+  .hero-form-card { bottom: 0; left: 0; padding: 24px 18px 19px; width: 100%; }
+  .hero-form-title { font-size: 1.25rem; }
+  .hero-form-sub { font-size: .75rem; }
+  .hero-form-badge { height: 50px; right: 16px; top: -19px; width: 50px; }
+  .radio-content-box { font-size: .62rem; min-height: 37px; }
+  .section { padding: 67px 0; }
+  .section-title { font-size: 2.15rem; line-height: 1.05; }
+  .section-subtitle { font-size: .94rem; }
+  .services-section { padding-top: 58px !important; }
+  .service-box-card { min-height: 0; }
+  .service-box-photo { height: 66px; padding: 22px 23px 0; }
+  .service-box-content { padding: 16px 23px 25px; }
+  .service-box-title { font-size: 1.35rem; }
+  .service-box-desc { font-size: .88rem; }
+  .advantages-row { padding: 0; }
+  .advantage-cell { min-height: 110px; padding: 17px 10px; }
+  .works-wrapper-box,.consultation-form-card { padding: 24px 20px; }
+  .photo-cell { height: 206px; }
+  #master { padding: 72px 0; }
+  .master-profile-card { gap: 30px; }
+  .master-quote { font-size: 1.18rem; line-height: 1.38; }
+  .faq-box-wrap { padding: 7px 20px; }
+  .faq-toggle-trigger { font-size: .9rem; line-height: 1.35; }
+}
