@@ -3,26 +3,15 @@
  * JavaScript функционал, интерактив и трекинг целей Яндекс.Метрики
  */
 
-// ==========================================
-// 1. НАСТРОЙКА ЯНДЕКС.МЕТРИКИ (ЗАМЕНИТЕ ID ПРИ ПОДКЛЮЧЕНИИ)
-// ==========================================
-const YANDEX_METRIKA_ID = 0; // Вставьте сюда номер вашего счетчика Метрики, например: 98765432
+const YANDEX_METRIKA_ID = 0; // Вставьте сюда номер счетчика Метрики при подключении
 
-/**
- * Отправка цели в Яндекс.Метрику и Google Analytics
- * @param {string} goalName - Идентификатор цели (click_phone, click_viber, calc_submit, etc.)
- */
 function trackGoal(goalName) {
   try {
     if (typeof ym === 'function' && YANDEX_METRIKA_ID > 0) {
       ym(YANDEX_METRIKA_ID, 'reachGoal', goalName);
-      console.log(`[YM Goal Fired]: ${goalName}`);
+      console.log(`[YM Goal]: ${goalName}`);
     } else {
-      console.log(`[Demo/Dev Goal]: ${goalName}`);
-    }
-
-    if (typeof gtag === 'function') {
-      gtag('event', goalName, { event_category: 'engagement' });
+      console.log(`[Goal]: ${goalName}`);
     }
   } catch (e) {
     console.error('Goal tracking error:', e);
@@ -31,169 +20,14 @@ function trackGoal(goalName) {
 
 document.addEventListener('DOMContentLoaded', () => {
   // ==========================================
-  // 2. ИНТЕРАКТИВНЫЙ СЛАЙДЕР ДО / ПОСЛЕ (Touch & Mouse)
+  // 1. Модальные окна
   // ==========================================
-  const sliderWrapper = document.getElementById('baSliderWrapper');
-  const sliderAfterWrapper = document.getElementById('baSliderAfter');
-  const sliderHandle = document.getElementById('baSliderHandle');
-
-  if (sliderWrapper && sliderAfterWrapper && sliderHandle) {
-    let isDragging = false;
-
-    const setSliderPosition = (clientX) => {
-      const rect = sliderWrapper.getBoundingClientRect();
-      let x = clientX - rect.left;
-      if (x < 0) x = 0;
-      if (x > rect.width) x = rect.width;
-      
-      const percentage = (x / rect.width) * 100;
-      sliderAfterWrapper.style.width = `${percentage}%`;
-      sliderHandle.style.left = `${percentage}%`;
-    };
-
-    const startDrag = (e) => {
-      isDragging = true;
-      const clientX = e.touches ? e.touches[0].clientX : e.clientX;
-      setSliderPosition(clientX);
-    };
-
-    const onDrag = (e) => {
-      if (!isDragging) return;
-      const clientX = e.touches ? e.touches[0].clientX : e.clientX;
-      setSliderPosition(clientX);
-    };
-
-    const stopDrag = () => {
-      isDragging = false;
-    };
-
-    sliderHandle.addEventListener('mousedown', startDrag);
-    sliderWrapper.addEventListener('mousedown', startDrag);
-    window.addEventListener('mousemove', onDrag);
-    window.addEventListener('mouseup', stopDrag);
-
-    sliderHandle.addEventListener('touchstart', startDrag, { passive: true });
-    sliderWrapper.addEventListener('touchstart', startDrag, { passive: true });
-    window.addEventListener('touchmove', onDrag, { passive: true });
-    window.addEventListener('touchend', stopDrag);
-  }
-
-  // ==========================================
-  // 3. КАЛЬКУЛЯТОР-КВИЗ СТОИМОСТИ
-  // ==========================================
-  const quizForm = document.getElementById('heroQuizForm');
-  const priceResultBadge = document.getElementById('calcEstimatedPrice');
-
-  function calculatePrice() {
-    let basePrice = 200; // Базовая цена для ванны 1.2-1.5м
-
-    const sizeInput = document.querySelector('input[name="bathSize"]:checked');
-    const conditionInput = document.querySelector('input[name="bathState"]:checked');
-
-    if (sizeInput) {
-      if (sizeInput.value === '1.5') basePrice = 200;
-      else if (sizeInput.value === '1.7') basePrice = 230;
-      else if (sizeInput.value === 'corner') basePrice = 250;
-    }
-
-    if (conditionInput) {
-      if (conditionInput.value === 'painted') basePrice += 30; // снятие старого вкладыша/эмали
-      else if (conditionInput.value === 'bad') basePrice += 15; // глубокая шпаклевка сколов
-    }
-
-    if (priceResultBadge) {
-      priceResultBadge.textContent = `от ${basePrice} BYN`;
-    }
-
-    return basePrice;
-  }
-
-  // Слушатель изменения параметров в квизе
-  const quizRadioInputs = document.querySelectorAll('.hero-quiz-card input[type="radio"]');
-  quizRadioInputs.forEach(radio => {
-    radio.addEventListener('change', () => {
-      calculatePrice();
-      trackGoal('quiz_interact');
-    });
-  });
-
-  calculatePrice();
-
-  // ==========================================
-  // 4. МАСКА И ФОРМАТИРОВАНИЕ ТЕЛЕФОНА (+375 ...)
-  // ==========================================
-  const phoneInputs = document.querySelectorAll('input[type="tel"]');
-  phoneInputs.forEach(input => {
-    input.addEventListener('input', (e) => {
-      let value = e.target.value.replace(/\D/g, '');
-      if (value.startsWith('375')) {
-        value = value.substring(3);
-      } else if (value.startsWith('80')) {
-        value = value.substring(2);
-      }
-
-      let formatted = '+375 ';
-      if (value.length > 0) {
-        formatted += '(' + value.substring(0, 2);
-      }
-      if (value.length >= 2) {
-        formatted += ') ' + value.substring(2, 5);
-      }
-      if (value.length >= 5) {
-        formatted += '-' + value.substring(5, 7);
-      }
-      if (value.length >= 7) {
-        formatted += '-' + value.substring(7, 9);
-      }
-
-      if (e.target.value.length <= 4 && e.target.value !== '+375') {
-        // do not wipe if deleting
-      } else {
-        e.target.value = formatted;
-      }
-    });
-
-    input.addEventListener('focus', (e) => {
-      if (!e.target.value) {
-        e.target.value = '+375 ';
-      }
-    });
-  });
-
-  // ==========================================
-  // 5. АККОРДЕОН FAQ
-  // ==========================================
-  const faqItems = document.querySelectorAll('.faq-item');
-  faqItems.forEach(item => {
-    const questionBtn = item.querySelector('.faq-question');
-    const answerBlock = item.querySelector('.faq-answer');
-
-    if (questionBtn && answerBlock) {
-      questionBtn.addEventListener('click', () => {
-        const isActive = item.classList.contains('active');
-
-        // Закрываем другие
-        faqItems.forEach(otherItem => {
-          otherItem.classList.remove('active');
-          const otherAnswer = otherItem.querySelector('.faq-answer');
-          if (otherAnswer) otherAnswer.style.maxHeight = null;
-        });
-
-        if (!isActive) {
-          item.classList.add('active');
-          answerBlock.style.maxHeight = answerBlock.scrollHeight + 'px';
-          trackGoal('faq_expand');
-        }
-      });
-    }
-  });
-
-  // ==========================================
-  // 6. МОДАЛЬНЫЕ ОКНА И ОБРАБОТКА ФОРМ
-  // ==========================================
-  const callbackModal = document.getElementById('callbackModal');
+  const calcModal = document.getElementById('calcModal');
+  const serviceModal = document.getElementById('serviceCallbackModal');
   const thankYouModal = document.getElementById('thankYouModal');
-  const openCallbackBtns = document.querySelectorAll('.js-open-callback');
+
+  const openCalcBtns = document.querySelectorAll('.js-open-calc');
+  const openServiceBtns = document.querySelectorAll('.js-open-callback');
   const closeModalsBtns = document.querySelectorAll('.js-close-modal');
 
   const openModal = (modal) => {
@@ -208,78 +42,166 @@ document.addEventListener('DOMContentLoaded', () => {
     document.body.style.overflow = '';
   };
 
-  openCallbackBtns.forEach(btn => {
+  openCalcBtns.forEach(btn => {
     btn.addEventListener('click', (e) => {
       e.preventDefault();
-      openModal(callbackModal);
-      trackGoal('open_callback_modal');
+      openModal(calcModal);
+      trackGoal('open_calc');
+    });
+  });
+
+  openServiceBtns.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const serviceName = btn.getAttribute('data-service') || 'Реставрация ванны';
+      const titleEl = document.getElementById('modalServiceTitle');
+      const inputEl = document.getElementById('selectedServiceName');
+      if (titleEl) titleEl.textContent = `Заказ услуги: ${serviceName}`;
+      if (inputEl) inputEl.value = serviceName;
+      openModal(serviceModal);
+      trackGoal('open_service_modal');
     });
   });
 
   closeModalsBtns.forEach(btn => {
     btn.addEventListener('click', () => {
-      closeModal(callbackModal);
+      closeModal(calcModal);
+      closeModal(serviceModal);
       closeModal(thankYouModal);
     });
   });
 
-  // Закрытие по клику вне окна и ESC
   window.addEventListener('click', (e) => {
-    if (e.target === callbackModal) closeModal(callbackModal);
+    if (e.target === calcModal) closeModal(calcModal);
+    if (e.target === serviceModal) closeModal(serviceModal);
     if (e.target === thankYouModal) closeModal(thankYouModal);
   });
 
   window.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
-      closeModal(callbackModal);
+      closeModal(calcModal);
+      closeModal(serviceModal);
       closeModal(thankYouModal);
     }
   });
 
-  // Обработка отправки формы квиза
-  if (quizForm) {
-    quizForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const phone = quizForm.querySelector('input[type="tel"]').value;
-      if (phone.length < 17) {
-        alert('Пожалуйста, введите корректный номер телефона');
-        return;
-      }
+  // ==========================================
+  // 2. Расчет цены в модальном калькуляторе
+  // ==========================================
+  const modalCalcPriceEl = document.getElementById('modalCalcPrice');
+  const calcRadios = document.querySelectorAll('#calcModalForm input[type="radio"]');
 
-      trackGoal('calc_submit');
-      closeModal(callbackModal);
-      openModal(thankYouModal);
-      quizForm.reset();
-      calculatePrice();
-    });
+  function updateModalCalc() {
+    let base = 200;
+    const size = document.querySelector('input[name="modalBathSize"]:checked');
+    const state = document.querySelector('input[name="modalBathState"]:checked');
+
+    if (size) {
+      if (size.value === '1.7') base = 230;
+      else if (size.value === 'corner') base = 250;
+    }
+
+    if (state) {
+      if (state.value === 'painted') base += 30;
+      else if (state.value === 'bad') base += 15;
+    }
+
+    if (modalCalcPriceEl) {
+      modalCalcPriceEl.textContent = `от ${base} BYN`;
+    }
   }
 
-  // Обработка формы модального окна
-  const modalForm = document.getElementById('modalCallbackForm');
-  if (modalForm) {
-    modalForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const phone = modalForm.querySelector('input[type="tel"]').value;
-      if (phone.length < 17) {
-        alert('Пожалуйста, введите корректный номер телефона');
-        return;
-      }
-
-      trackGoal('callback_submit');
-      closeModal(callbackModal);
-      openModal(thankYouModal);
-      modalForm.reset();
-    });
-  }
+  calcRadios.forEach(radio => {
+    radio.addEventListener('change', updateModalCalc);
+  });
 
   // ==========================================
-  // 7. ТРЕКИНГ КЛИКОВ ПО КОНТАКТАМ
+  // 3. Форматирование телефона (+375 ...)
+  // ==========================================
+  const phoneInputs = document.querySelectorAll('input[type="tel"]');
+  phoneInputs.forEach(input => {
+    input.addEventListener('input', (e) => {
+      let value = e.target.value.replace(/\D/g, '');
+      if (value.startsWith('375')) value = value.substring(3);
+      else if (value.startsWith('80')) value = value.substring(2);
+
+      let formatted = '+375 ';
+      if (value.length > 0) formatted += '(' + value.substring(0, 2);
+      if (value.length >= 2) formatted += ') ' + value.substring(2, 5);
+      if (value.length >= 5) formatted += '-' + value.substring(5, 7);
+      if (value.length >= 7) formatted += '-' + value.substring(7, 9);
+
+      if (e.target.value.length > 4 || e.target.value === '+375') {
+        e.target.value = formatted;
+      }
+    });
+
+    input.addEventListener('focus', (e) => {
+      if (!e.target.value) e.target.value = '+375 ';
+    });
+  });
+
+  // ==========================================
+  // 4. Отправка форм
+  // ==========================================
+  const handleFormSubmit = (formId, goalName) => {
+    const form = document.getElementById(formId);
+    if (!form) return;
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const phoneInput = form.querySelector('input[type="tel"]');
+      if (phoneInput && phoneInput.value.length < 17) {
+        alert('Пожалуйста, введите полный номер телефона: +375 (XX) XXX-XX-XX');
+        return;
+      }
+
+      trackGoal(goalName);
+      closeModal(calcModal);
+      closeModal(serviceModal);
+      openModal(thankYouModal);
+      form.reset();
+    });
+  };
+
+  handleFormSubmit('sideConsultationForm', 'side_consultation_submit');
+  handleFormSubmit('calcModalForm', 'calc_modal_submit');
+  handleFormSubmit('serviceModalForm', 'service_modal_submit');
+
+  // ==========================================
+  // 5. FAQ Аккордеон
+  // ==========================================
+  const faqItems = document.querySelectorAll('.faq-item-clean');
+  faqItems.forEach(item => {
+    const btn = item.querySelector('.faq-btn-clean');
+    const content = item.querySelector('.faq-content-clean');
+
+    if (btn && content) {
+      btn.addEventListener('click', () => {
+        const isActive = item.classList.contains('active');
+
+        faqItems.forEach(other => {
+          other.classList.remove('active');
+          const otherContent = other.querySelector('.faq-content-clean');
+          if (otherContent) otherContent.style.maxHeight = null;
+        });
+
+        if (!isActive) {
+          item.classList.add('active');
+          content.style.maxHeight = content.scrollHeight + 'px';
+        }
+      });
+    }
+  });
+
+  // ==========================================
+  // 6. Трекинг прямых контактов
   // ==========================================
   document.querySelectorAll('a[href^="tel:"]').forEach(link => {
     link.addEventListener('click', () => trackGoal('click_phone'));
   });
 
-  document.querySelectorAll('a[href*="viber://"], a[href*="viber.click"]').forEach(link => {
+  document.querySelectorAll('a[href*="viber"]').forEach(link => {
     link.addEventListener('click', () => trackGoal('click_viber'));
   });
 
