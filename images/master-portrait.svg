@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300" fill="none">
+  <circle cx="150" cy="150" r="140" fill="#F0F9FF" stroke="#0284C7" stroke-width="4"/>
+  <!-- Avatar Silhouette / Master in uniform -->
+  <!-- Blue professional polo shirt -->
+  <path d="M70 270 C70 210, 110 190, 150 190 C190 190, 230 210, 230 270 Z" fill="#0369A1"/>
+  <!-- Collar & uniform badge -->
+  <path d="M125 190 L150 220 L175 190" fill="#0284C7"/>
+  <rect x="170" y="225" width="36" height="18" rx="4" fill="#FFFFFF"/>
+  <text x="188" y="238" fill="#0369A1" font-family="system-ui, sans-serif" font-weight="bold" font-size="8" text-anchor="middle">МАСТЕР</text>
+  <!-- Neck -->
+  <path d="M132 165 H168 V195 H132 Z" fill="#FBCFE8"/>
+  <!-- Head & Face -->
+  <ellipse cx="150" cy="135" rx="45" ry="52" fill="#FED7AA"/>
+  <!-- Short neat hair -->
+  <path d="M105 130 C105 85, 195 85, 195 130 C195 100, 185 90, 150 90 C115 90, 105 100, 105 130 Z" fill="#475569"/>
+  <!-- Eyes & Smile -->
+  <circle cx="134" cy="132" r="4" fill="#1E293B"/>
+  <circle cx="166" cy="132" r="4" fill="#1E293B"/>
+  <path d="M136 156 Q150 168 164 156" stroke="#C2410C" stroke-width="3" stroke-linecap="round" fill="none"/>
+  <!-- Friendly eyebrows -->
+  <path d="M128 122 Q136 118 144 123" stroke="#475569" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M156 123 Q164 118 172 122" stroke="#475569" stroke-width="2.5" stroke-linecap="round"/>
+  <!-- Verified Badge -->
+  <circle cx="215" cy="215" r="24" fill="#10B981" stroke="#FFFFFF" stroke-width="3"/>
+  <path d="M206 215 L212 221 L224 209" stroke="white" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

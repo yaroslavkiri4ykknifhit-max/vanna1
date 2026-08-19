@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <circle cx="32" cy="32" r="30" fill="#ECFDF5" stroke="#10B981" stroke-width="2"/>
+  <!-- Tag -->
+  <path d="M22 18H34L46 30L34 42L22 30V18Z" fill="#10B981"/>
+  <circle cx="28" cy="24" r="3" fill="white"/>
+  <text x="31" y="33" fill="white" font-family="system-ui, sans-serif" font-weight="bold" font-size="10" text-anchor="middle">BYN</text>
+</svg>

@@ -1,0 +1,13 @@
+# Robots.txt for Реставрация ванн в Полоцке и Новополоцке (Денис Леташков)
+User-agent: *
+Allow: /
+Disallow: /scratch/
+
+# Yandex bot specifics
+User-agent: Yandex
+Allow: /
+Clean-param: utm_source&utm_medium&utm_campaign&utm_content&utm_term&yclid&gclid /
+
+# Host & Sitemap directives
+Host: https://yaroslavkiri4ykknifhit-max.github.io/vanna1/
+Sitemap: https://yaroslavkiri4ykknifhit-max.github.io/vanna1/sitemap.xml

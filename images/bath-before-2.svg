@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" fill="none">
+  <rect width="600" height="400" fill="#F1F5F9"/>
+  <!-- Peeling, chipped bath -->
+  <path d="M50 160C50 150 60 140 75 140H525C540 140 550 150 550 160V220C550 320 460 370 300 370C140 370 50 320 50 220V160Z" fill="#CBD5E1" stroke="#94A3B8" stroke-width="4"/>
+  <ellipse cx="300" cy="240" rx="220" ry="100" fill="#DDD6C7"/>
+  <ellipse cx="300" cy="255" rx="180" ry="70" fill="#C9BBA5"/>
+  <!-- Peeling enamel flakes -->
+  <path d="M220 220 C240 210, 270 230, 260 250 C240 260, 210 240, 220 220 Z" fill="#334155"/>
+  <path d="M330 240 C350 220, 390 230, 380 260 C360 270, 330 255, 330 240 Z" fill="#334155"/>
+  <circle cx="300" cy="285" r="11" fill="#1E293B"/>
+  <rect x="25" y="25" width="90" height="38" rx="8" fill="#EF4444"/>
+  <text x="70" y="50" fill="white" font-family="system-ui, sans-serif" font-weight="900" font-size="18" text-anchor="middle">ДО</text>
+</svg>

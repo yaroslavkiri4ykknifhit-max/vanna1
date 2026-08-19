@@ -1,0 +1,16 @@
+{
+  "name": "Реставрация ванн в Полоцке и Новополоцке | Мастер Денис Леташков",
+  "short_name": "Реставрация ванн",
+  "description": "Профессиональная реставрация ванн наливным акрилом Люкс в Полоцке, Новополоцке и районе от 200 р. Гарантия 2 года. УНП СА7232035.",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#0284c7",
+  "icons": [
+    {
+      "src": "images/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}

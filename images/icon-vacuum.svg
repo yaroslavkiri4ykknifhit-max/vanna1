@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <circle cx="32" cy="32" r="30" fill="#E0F2FE" stroke="#0284C7" stroke-width="2"/>
+  <!-- Vacuum Body -->
+  <rect x="18" y="24" width="28" height="24" rx="8" fill="#0284C7"/>
+  <circle cx="24" cy="46" r="5" fill="#0369A1" stroke="#FFFFFF" stroke-width="2"/>
+  <circle cx="40" cy="46" r="5" fill="#0369A1" stroke="#FFFFFF" stroke-width="2"/>
+  <path d="M32 24V16C32 14.8954 31.1046 14 30 14H24" stroke="#0284C7" stroke-width="4" stroke-linecap="round"/>
+  <!-- Clean Sparkles / No Dust badge -->
+  <path d="M48 12L49 15L52 16L49 17L48 20L47 17L44 16L47 15L48 12Z" fill="#F59E0B"/>
+  <path d="M14 18L15 20L17 21L15 22L14 24L13 22L11 21L13 20L14 18Z" fill="#F59E0B"/>
+</svg>

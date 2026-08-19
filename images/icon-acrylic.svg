@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <circle cx="32" cy="32" r="30" fill="#F0F9FF" stroke="#0284C7" stroke-width="2"/>
+  <!-- Paint Bucket & Liquid flow -->
+  <path d="M22 24L25 46C25.2 47.5 26.5 48.5 28 48.5H36C37.5 48.5 38.8 47.5 39 46L42 24H22Z" fill="#0284C7"/>
+  <ellipse cx="32" cy="24" rx="10" ry="3" fill="#38BDF8"/>
+  <path d="M20 22C20 16 44 16 44 22" stroke="#0369A1" stroke-width="2" stroke-linecap="round"/>
+  <!-- Gloss wave -->
+  <path d="M37 28C39 30 46 32 46 38C46 43 43 45 43 45" stroke="#38BDF8" stroke-width="3" stroke-linecap="round"/>
+</svg>

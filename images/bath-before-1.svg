@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" fill="none">
+  <!-- Bathroom background -->
+  <rect width="600" height="400" fill="#E2E8F0"/>
+  <!-- Tiles with dark moldy seams -->
+  <g stroke="#CBD5E1" stroke-width="1.5">
+    <line x1="0" y1="50" x2="600" y2="50"/>
+    <line x1="0" y1="100" x2="600" y2="100"/>
+    <line x1="0" y1="150" x2="600" y2="150"/>
+    <line x1="0" y1="200" x2="600" y2="200"/>
+    <line x1="100" y1="0" x2="100" y2="200"/>
+    <line x1="200" y1="0" x2="200" y2="200"/>
+    <line x1="300" y1="0" x2="300" y2="200"/>
+    <line x1="400" y1="0" x2="400" y2="200"/>
+    <line x1="500" y1="0" x2="500" y2="200"/>
+  </g>
+  <!-- Tub Contour (Old, Damaged, Yellowed, Rusted) -->
+  <path d="M50 160C50 150 60 140 75 140H525C540 140 550 150 550 160V220C550 320 460 370 300 370C140 370 50 320 50 220V160Z" fill="#D1D5DB" stroke="#9CA3AF" stroke-width="4"/>
+  <!-- Tub Inner Cavity (Yellowed dirty enamel) -->
+  <ellipse cx="300" cy="240" rx="220" ry="100" fill="#E5E0D0"/>
+  <ellipse cx="300" cy="255" rx="180" ry="70" fill="#D9CFB8"/>
+  <!-- Rust Stains & Scratches -->
+  <ellipse cx="300" cy="285" rx="20" ry="12" fill="#78350F" opacity="0.8"/>
+  <!-- Rust streaks down from tap -->
+  <path d="M290 170 C290 200, 310 220, 298 280" stroke="#92400E" stroke-width="12" stroke-linecap="round" opacity="0.75" filter="blur(2px)"/>
+  <path d="M305 175 C308 210, 312 240, 302 282" stroke="#B45309" stroke-width="8" stroke-linecap="round" opacity="0.8"/>
+  <!-- Chipped Enamel Areas -->
+  <path d="M180 230 Q190 220 210 235 Q195 250 180 230Z" fill="#1F2937" stroke="#4B5563" stroke-width="2"/>
+  <path d="M400 240 Q420 230 430 250 Q410 260 400 240Z" fill="#1F2937" stroke="#4B5563" stroke-width="2"/>
+  <circle cx="230" cy="280" r="14" fill="#78350F" opacity="0.6"/>
+  <!-- Old Rusty Drain -->
+  <circle cx="300" cy="285" r="10" fill="#451A03" stroke="#292524" stroke-width="3"/>
+  <!-- Badge: ДО -->
+  <rect x="25" y="25" width="90" height="38" rx="8" fill="#EF4444"/>
+  <text x="70" y="50" fill="white" font-family="system-ui, sans-serif" font-weight="900" font-size="18" text-anchor="middle">ДО</text>
+</svg>

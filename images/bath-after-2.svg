@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" fill="none">
+  <rect width="600" height="400" fill="#F0FDF4"/>
+  <!-- Smooth restored luxury acrylic finish -->
+  <path d="M50 160C50 150 60 140 75 140H525C540 140 550 150 550 160V220C550 320 460 370 300 370C140 370 50 320 50 220V160Z" fill="#FFFFFF" stroke="#10B981" stroke-width="3"/>
+  <ellipse cx="300" cy="240" rx="220" ry="100" fill="#FFFFFF"/>
+  <ellipse cx="300" cy="255" rx="180" ry="70" fill="#F8FAFC"/>
+  <!-- Bright gloss reflection -->
+  <path d="M110 210 Q300 185 490 210" stroke="#6EE7B7" stroke-width="4" stroke-linecap="round" opacity="0.8"/>
+  <circle cx="300" cy="285" r="12" fill="#E2E8F0" stroke="#10B981" stroke-width="2"/>
+  <circle cx="300" cy="285" r="7" fill="#0F172A"/>
+  <!-- Sparkles -->
+  <path d="M220 200 L223 207 L230 209 L223 211 L220 218 L217 211 L210 209 L217 207 Z" fill="#10B981"/>
+  <path d="M380 210 L383 217 L390 219 L383 221 L380 228 L377 221 L370 219 L377 217 Z" fill="#10B981"/>
+  <rect x="25" y="25" width="110" height="38" rx="8" fill="#10B981"/>
+  <text x="80" y="50" fill="white" font-family="system-ui, sans-serif" font-weight="900" font-size="18" text-anchor="middle">ПОСЛЕ</text>
+</svg>

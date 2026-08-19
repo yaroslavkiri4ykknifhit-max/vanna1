@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" fill="none">
+  <circle cx="60" cy="60" r="54" fill="#0284C7" stroke="#38BDF8" stroke-width="4"/>
+  <circle cx="60" cy="60" r="46" stroke="#FFFFFF" stroke-dasharray="4 3" stroke-width="2"/>
+  <text x="60" y="44" fill="#E0F2FE" font-family="system-ui, sans-serif" font-weight="bold" font-size="12" text-anchor="middle" letter-spacing="1">ОФИЦИАЛЬНАЯ</text>
+  <text x="60" y="70" fill="#FFFFFF" font-family="system-ui, sans-serif" font-weight="900" font-size="28" text-anchor="middle">2 ГОДА</text>
+  <text x="60" y="86" fill="#FDE047" font-family="system-ui, sans-serif" font-weight="800" font-size="12" text-anchor="middle" letter-spacing="1">ГАРАНТИЯ</text>
+  <path d="M42 98L60 92L78 98L60 108L42 98Z" fill="#F59E0B"/>
+</svg>
