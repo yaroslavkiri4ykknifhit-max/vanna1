@@ -1,9 +1,9 @@
 /**
- * Реставрация ванн в Полоцке и Новополоцке | Мастер Денис Леташков
- * JavaScript функционал, интерактив и трекинг целей Яндекс.Метрики
+ * Реставрация ванн в Полоцке и Новополоцке | Мастер Денис Леташков (НПД)
+ * JavaScript интерактив и цели Яндекс.Метрики
  */
 
-const YANDEX_METRIKA_ID = 0; // Вставьте сюда номер счетчика Метрики при подключении
+const YANDEX_METRIKA_ID = 0; // Вставьте сюда номер счетчика Метрики
 
 function trackGoal(goalName) {
   try {
@@ -22,12 +22,9 @@ document.addEventListener('DOMContentLoaded', () => {
   // ==========================================
   // 1. Модальные окна
   // ==========================================
-  const calcModal = document.getElementById('calcModal');
-  const serviceModal = document.getElementById('serviceCallbackModal');
+  const callbackModal = document.getElementById('callbackModal');
   const thankYouModal = document.getElementById('thankYouModal');
-
-  const openCalcBtns = document.querySelectorAll('.js-open-calc');
-  const openServiceBtns = document.querySelectorAll('.js-open-callback');
+  const openCallbackBtns = document.querySelectorAll('.js-open-callback');
   const closeModalsBtns = document.querySelectorAll('.js-close-modal');
 
   const openModal = (modal) => {
@@ -42,77 +39,70 @@ document.addEventListener('DOMContentLoaded', () => {
     document.body.style.overflow = '';
   };
 
-  openCalcBtns.forEach(btn => {
+  openCallbackBtns.forEach(btn => {
     btn.addEventListener('click', (e) => {
       e.preventDefault();
-      openModal(calcModal);
-      trackGoal('open_calc');
-    });
-  });
-
-  openServiceBtns.forEach(btn => {
-    btn.addEventListener('click', (e) => {
-      e.preventDefault();
-      const serviceName = btn.getAttribute('data-service') || 'Реставрация ванны';
+      const serviceName = btn.getAttribute('data-service') || 'Консультация мастера';
       const titleEl = document.getElementById('modalServiceTitle');
-      const inputEl = document.getElementById('selectedServiceName');
-      if (titleEl) titleEl.textContent = `Заказ услуги: ${serviceName}`;
+      const inputEl = document.getElementById('serviceInputHidden');
+      if (titleEl) titleEl.textContent = `Заказ: ${serviceName}`;
       if (inputEl) inputEl.value = serviceName;
-      openModal(serviceModal);
-      trackGoal('open_service_modal');
+      openModal(callbackModal);
+      trackGoal('open_callback_modal');
     });
   });
 
   closeModalsBtns.forEach(btn => {
     btn.addEventListener('click', () => {
-      closeModal(calcModal);
-      closeModal(serviceModal);
+      closeModal(callbackModal);
       closeModal(thankYouModal);
     });
   });
 
   window.addEventListener('click', (e) => {
-    if (e.target === calcModal) closeModal(calcModal);
-    if (e.target === serviceModal) closeModal(serviceModal);
+    if (e.target === callbackModal) closeModal(callbackModal);
     if (e.target === thankYouModal) closeModal(thankYouModal);
   });
 
   window.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
-      closeModal(calcModal);
-      closeModal(serviceModal);
+      closeModal(callbackModal);
       closeModal(thankYouModal);
     }
   });
 
   // ==========================================
-  // 2. Расчет цены в модальном калькуляторе
+  // 2. Экспресс-калькулятор стоимости в Hero
   // ==========================================
-  const modalCalcPriceEl = document.getElementById('modalCalcPrice');
-  const calcRadios = document.querySelectorAll('#calcModalForm input[type="radio"]');
+  const calcPriceDisplay = document.getElementById('heroCalcPrice');
+  const calcRadios = document.querySelectorAll('#heroFastCalcForm input[type="radio"]');
 
-  function updateModalCalc() {
-    let base = 200;
-    const size = document.querySelector('input[name="modalBathSize"]:checked');
-    const state = document.querySelector('input[name="modalBathState"]:checked');
+  function calculateHeroPrice() {
+    let base = 200; // Базовая цена от 200 руб за 1.2-1.5м
 
-    if (size) {
-      if (size.value === '1.7') base = 230;
-      else if (size.value === 'corner') base = 250;
+    const length = document.querySelector('input[name="bathLength"]:checked');
+    const condition = document.querySelector('input[name="bathCondition"]:checked');
+
+    if (length) {
+      if (length.value === '1.7') base = 230;
+      else if (length.value === 'corner') base = 250;
     }
 
-    if (state) {
-      if (state.value === 'painted') base += 30;
-      else if (state.value === 'bad') base += 15;
+    if (condition) {
+      if (condition.value === 'painted') base += 30; // снятие старого покрытия
+      else if (condition.value === 'bad') base += 15; // глубокие сколы
     }
 
-    if (modalCalcPriceEl) {
-      modalCalcPriceEl.textContent = `от ${base} BYN`;
+    if (calcPriceDisplay) {
+      calcPriceDisplay.textContent = `от ${base} BYN`;
     }
   }
 
   calcRadios.forEach(radio => {
-    radio.addEventListener('change', updateModalCalc);
+    radio.addEventListener('change', () => {
+      calculateHeroPrice();
+      trackGoal('quiz_interact');
+    });
   });
 
   // ==========================================
@@ -144,58 +134,58 @@ document.addEventListener('DOMContentLoaded', () => {
   // ==========================================
   // 4. Отправка форм
   // ==========================================
-  const handleFormSubmit = (formId, goalName) => {
+  const bindForm = (formId, goalName) => {
     const form = document.getElementById(formId);
     if (!form) return;
 
     form.addEventListener('submit', (e) => {
       e.preventDefault();
-      const phoneInput = form.querySelector('input[type="tel"]');
-      if (phoneInput && phoneInput.value.length < 17) {
+      const phone = form.querySelector('input[type="tel"]');
+      if (phone && phone.value.length < 17) {
         alert('Пожалуйста, введите полный номер телефона: +375 (XX) XXX-XX-XX');
         return;
       }
 
       trackGoal(goalName);
-      closeModal(calcModal);
-      closeModal(serviceModal);
+      closeModal(callbackModal);
       openModal(thankYouModal);
       form.reset();
+      calculateHeroPrice();
     });
   };
 
-  handleFormSubmit('sideConsultationForm', 'side_consultation_submit');
-  handleFormSubmit('calcModalForm', 'calc_modal_submit');
-  handleFormSubmit('serviceModalForm', 'service_modal_submit');
+  bindForm('heroFastCalcForm', 'hero_calc_submit');
+  bindForm('sideDirectForm', 'side_direct_submit');
+  bindForm('modalCallbackForm', 'modal_callback_submit');
 
   // ==========================================
   // 5. FAQ Аккордеон
   // ==========================================
-  const faqItems = document.querySelectorAll('.faq-item-clean');
+  const faqItems = document.querySelectorAll('.faq-row-item');
   faqItems.forEach(item => {
-    const btn = item.querySelector('.faq-btn-clean');
-    const content = item.querySelector('.faq-content-clean');
+    const trigger = item.querySelector('.faq-toggle-trigger');
+    const drawer = item.querySelector('.faq-drawer-content');
 
-    if (btn && content) {
-      btn.addEventListener('click', () => {
+    if (trigger && drawer) {
+      trigger.addEventListener('click', () => {
         const isActive = item.classList.contains('active');
 
         faqItems.forEach(other => {
           other.classList.remove('active');
-          const otherContent = other.querySelector('.faq-content-clean');
-          if (otherContent) otherContent.style.maxHeight = null;
+          const otherDrawer = other.querySelector('.faq-drawer-content');
+          if (otherDrawer) otherDrawer.style.maxHeight = null;
         });
 
         if (!isActive) {
           item.classList.add('active');
-          content.style.maxHeight = content.scrollHeight + 'px';
+          drawer.style.maxHeight = drawer.scrollHeight + 'px';
         }
       });
     }
   });
 
   // ==========================================
-  // 6. Трекинг прямых контактов
+  // 6. Трекинг контактов
   // ==========================================
   document.querySelectorAll('a[href^="tel:"]').forEach(link => {
     link.addEventListener('click', () => trackGoal('click_phone'));
