@@ -23,7 +23,6 @@ document.addEventListener('DOMContentLoaded', () => {
   // 1. Модальные окна
   // ==========================================
   const callbackModal = document.getElementById('callbackModal');
-  const thankYouModal = document.getElementById('thankYouModal');
   const openCallbackBtns = document.querySelectorAll('.js-open-callback');
   const closeModalsBtns = document.querySelectorAll('.js-close-modal');
 
@@ -44,9 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
       e.preventDefault();
       const serviceName = btn.getAttribute('data-service') || 'Консультация мастера';
       const titleEl = document.getElementById('modalServiceTitle');
-      const inputEl = document.getElementById('serviceInputHidden');
       if (titleEl) titleEl.textContent = `Заказ: ${serviceName}`;
-      if (inputEl) inputEl.value = serviceName;
       openModal(callbackModal);
       trackGoal('open_callback_modal');
     });
@@ -55,19 +52,16 @@ document.addEventListener('DOMContentLoaded', () => {
   closeModalsBtns.forEach(btn => {
     btn.addEventListener('click', () => {
       closeModal(callbackModal);
-      closeModal(thankYouModal);
     });
   });
 
   window.addEventListener('click', (e) => {
     if (e.target === callbackModal) closeModal(callbackModal);
-    if (e.target === thankYouModal) closeModal(thankYouModal);
   });
 
   window.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
       closeModal(callbackModal);
-      closeModal(thankYouModal);
     }
   });
 
@@ -75,7 +69,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // 2. Экспресс-калькулятор стоимости в Hero
   // ==========================================
   const calcPriceDisplay = document.getElementById('heroCalcPrice');
-  const calcRadios = document.querySelectorAll('#heroFastCalcForm input[type="radio"]');
+  const calcRadios = document.querySelectorAll('#heroCalculator input[type="radio"]');
 
   function calculateHeroPrice() {
     let base = 200; // Базовая цена от 200 руб за 1.2-1.5м
@@ -106,60 +100,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // ==========================================
-  // 3. Форматирование телефона (+375 ...)
-  // ==========================================
-  const phoneInputs = document.querySelectorAll('input[type="tel"]');
-  phoneInputs.forEach(input => {
-    input.addEventListener('input', (e) => {
-      let value = e.target.value.replace(/\D/g, '');
-      if (value.startsWith('375')) value = value.substring(3);
-      else if (value.startsWith('80')) value = value.substring(2);
-
-      let formatted = '+375 ';
-      if (value.length > 0) formatted += '(' + value.substring(0, 2);
-      if (value.length >= 2) formatted += ') ' + value.substring(2, 5);
-      if (value.length >= 5) formatted += '-' + value.substring(5, 7);
-      if (value.length >= 7) formatted += '-' + value.substring(7, 9);
-
-      if (e.target.value.length > 4 || e.target.value === '+375') {
-        e.target.value = formatted;
-      }
-    });
-
-    input.addEventListener('focus', (e) => {
-      if (!e.target.value) e.target.value = '+375 ';
-    });
-  });
-
-  // ==========================================
-  // 4. Отправка форм
-  // ==========================================
-  const bindForm = (formId, goalName) => {
-    const form = document.getElementById(formId);
-    if (!form) return;
-
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const phone = form.querySelector('input[type="tel"]');
-      if (phone && phone.value.length < 17) {
-        alert('Пожалуйста, введите полный номер телефона: +375 (XX) XXX-XX-XX');
-        return;
-      }
-
-      trackGoal(goalName);
-      closeModal(callbackModal);
-      openModal(thankYouModal);
-      form.reset();
-      calculateHeroPrice();
-    });
-  };
-
-  bindForm('heroFastCalcForm', 'hero_calc_submit');
-  bindForm('sideDirectForm', 'side_direct_submit');
-  bindForm('modalCallbackForm', 'modal_callback_submit');
-
-  // ==========================================
-  // 5. FAQ Аккордеон
+  // 3. FAQ Аккордеон
   // ==========================================
   const faqItems = document.querySelectorAll('.faq-row-item');
   faqItems.forEach(item => {

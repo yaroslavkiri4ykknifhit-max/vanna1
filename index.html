@@ -121,6 +121,13 @@
         </div>
       </a>
 
+      <nav class="main-nav" aria-label="Основная навигация">
+        <a href="#services">Услуги</a>
+        <a href="#works">Работы</a>
+        <a href="#master">О мастере</a>
+        <a href="#faq">Вопросы</a>
+      </nav>
+
       <div class="header-meta-group">
         <!-- Быстрые мессенджеры -->
         <div class="header-messengers-row">
@@ -151,66 +158,71 @@
       <div class="hero-grid">
         
         <!-- Текст и выгоды слева -->
-        <div>
+        <div class="hero-copy">
           <div class="hero-pill-badge">
-            Официальная гарантия 2 года • Работа по чеку НПД
+            Реставрация ванн в Полоцке и Новополоцке
           </div>
 
           <h1 class="hero-title">
-            Верну ванной ровную белую поверхность <span class="hero-title-gradient">без ремонта санузла</span>
+            Реставрация ванн <span class="hero-title-gradient">без замены и ремонта</span>
           </h1>
 
           <p class="hero-description">
-            Восстанавливаю эмаль наливным акрилом: без демонтажа плитки и замены ванны. Работа занимает 2,5–3 часа, а пользоваться ванной можно через сутки.
+            Верну гладкое белое покрытие за один визит. Без демонтажа плитки, грязного ремонта и лишних затрат на новую ванну.
           </p>
 
           <div class="hero-key-benefits">
             <div class="hero-benefit-item">
               <img src="images/icon-vacuum.svg" alt="Пылесос" class="hero-benefit-icon">
-              <span>Зачистка с пылесосом — без пыли</span>
+              <span>Чистая зачистка с пылесосом</span>
             </div>
             <div class="hero-benefit-item">
               <img src="images/icon-acrylic.svg" alt="Акрил" class="hero-benefit-icon">
-              <span>Проверенный наливной акрил</span>
+              <span>Наливной акрил с ровным покрытием</span>
             </div>
             <div class="hero-benefit-item">
               <img src="images/icon-shield.svg" alt="Гарантия" class="hero-benefit-icon">
-              <span>Гарантия 2 года по чеку НПД</span>
+              <span>Официальная гарантия 2 года</span>
             </div>
             <div class="hero-benefit-item">
               <img src="images/icon-map.svg" alt="Выезд" class="hero-benefit-icon">
-              <span>Выезд по Полоцку и району</span>
+              <span>Личный выезд мастера на объект</span>
             </div>
           </div>
 
           <div class="hero-meta-stats">
             <div class="hero-stat-box">
               <span class="hero-stat-number">от 200 р.</span>
-              <span class="hero-stat-lbl">стоимость под ключ</span>
+              <span class="hero-stat-lbl">под ключ</span>
             </div>
             <div class="hero-stat-box">
               <span class="hero-stat-number">2.5–3 ч</span>
-              <span class="hero-stat-lbl">время работы</span>
+              <span class="hero-stat-lbl">один визит</span>
             </div>
             <div class="hero-stat-box">
               <span class="hero-stat-number">0 BYN</span>
-              <span class="hero-stat-lbl">консультация и расчёт</span>
+              <span class="hero-stat-lbl">расчёт</span>
             </div>
             <div class="hero-stat-box">
               <span class="hero-stat-number">10–15 лет</span>
-              <span class="hero-stat-lbl">расчётный срок покрытия</span>
+              <span class="hero-stat-lbl">срок покрытия</span>
             </div>
           </div>
         </div>
 
-        <!-- Экспресс-калькулятор справа -->
-        <div>
+        <!-- Визуальный акцент и расчёт -->
+        <div class="hero-side">
+          <div class="hero-visual" aria-hidden="true">
+            <div class="hero-orbit orbit-one"></div>
+            <div class="hero-orbit orbit-two"></div>
+            <img src="images/hero-bg.jpg" alt="Мастер подготавливает ванну к реставрации">
+          </div>
           <div class="hero-form-card">
             <div class="hero-form-badge">Расчёт без обязательств</div>
             <h2 class="hero-form-title">Узнайте стоимость вашей ванны</h2>
             <p class="hero-form-sub">Отметьте два пункта — получите предварительную цену.</p>
 
-            <form id="heroFastCalcForm">
+            <div class="hero-calculator" id="heroCalculator">
               <div class="form-group-item">
                 <label class="form-lbl">1. Длина вашей ванны:</label>
                 <div class="form-radio-grid">
@@ -252,19 +264,14 @@
                 <span id="heroCalcPrice" class="calc-price-result-val">от 200 BYN</span>
               </div>
 
-              <div class="form-group-item">
-                <label for="heroPhoneInput" class="form-lbl">Ваш номер телефона:</label>
-                <input type="tel" id="heroPhoneInput" name="phone" class="form-input-field" placeholder="+375 (__) ___-__-__" required>
+              <div class="direct-contact-actions">
+                <a href="tel:+375295119362" class="btn btn-secondary btn-full btn-lg">Позвонить и уточнить стоимость</a>
+                <a href="https://wa.me/375295119362" class="direct-messenger-link" target="_blank" rel="noopener">или написать мастеру в WhatsApp</a>
               </div>
-
-              <button type="submit" class="btn btn-secondary btn-full btn-lg btn-pulse">
-                Получить точный расчёт
-              </button>
-
               <div style="font-size: 0.75rem; color: #94a3b8; text-align: center; margin-top: 10px;">
-                Без спама. Денис свяжется с вами в рабочее время.
+                Денис ответит ежедневно с 08:00 до 21:00. Без посредников.
               </div>
-            </form>
+            </div>
           </div>
         </div>
 
@@ -321,7 +328,7 @@
   <!-- ==========================================
        СЕКЦИЯ: НАШИ УСЛУГИ (3 КАРТОЧКИ)
        ========================================== -->
-  <section class="section" style="padding-top: 10px;">
+  <section class="section services-section" id="services">
     <div class="container">
       <div class="section-header-center">
         <span class="section-tag">Выберите подходящий способ</span>
@@ -428,7 +435,7 @@
   <!-- ==========================================
        СЕКЦИЯ: НАШИ РАБОТЫ И БЕСПЛАТНАЯ КОНСУЛЬТАЦИЯ
        ========================================== -->
-  <section class="section">
+  <section class="section" id="works">
     <div class="container">
       <div class="two-col-layout">
         
@@ -465,26 +472,14 @@
         <div class="consultation-form-card">
           <h2 class="consultation-form-title">Оценка вашей ванны</h2>
           <p class="consultation-form-desc">
-            Оставьте телефон — Денис уточнит детали, сориентирует по стоимости и подходящему способу восстановления.
+            Свяжитесь с Денисом напрямую: он уточнит детали, сориентирует по стоимости и подскажет подходящий способ восстановления.
           </p>
 
-          <form id="sideDirectForm">
-            <div class="form-group-item">
-              <input type="text" name="name" class="form-input-field" placeholder="Ваше имя">
-            </div>
-
-            <div class="form-group-item">
-              <input type="tel" name="phone" class="form-input-field" placeholder="Ваш телефон (+375 ...)" required>
-            </div>
-
-            <button type="submit" class="btn btn-primary btn-full btn-lg">
-              Получить консультацию
-            </button>
-
-            <div style="font-size: 0.75rem; color: var(--text-light); text-align: center; margin-top: 12px;">
-              Без спама. Ответ в рабочее время: ежедневно с 08:00 до 21:00.
-            </div>
-          </form>
+          <div class="contact-actions-stack">
+            <a href="tel:+375295119362" class="btn btn-primary btn-full btn-lg">Позвонить мастеру</a>
+            <a href="https://wa.me/375295119362" class="btn btn-outline btn-full" target="_blank" rel="noopener">Написать в WhatsApp</a>
+            <div class="contact-actions-note">Ежедневно с 08:00 до 21:00. Без диспетчеров и посредников.</div>
+          </div>
         </div>
 
       </div>
@@ -494,7 +489,7 @@
   <!-- ==========================================
        БЛОК О МАСТЕРЕ И ГЕОГРАФИЯ (НПД ДОВЕРИЕ)
        ========================================== -->
-  <section class="section" style="background: #ffffff; border-top: 1px solid var(--border-light); border-bottom: 1px solid var(--border-light);">
+  <section class="section" id="master" style="background: #ffffff; border-top: 1px solid var(--border-light); border-bottom: 1px solid var(--border-light);">
     <div class="container">
       <div class="master-profile-card">
         <div class="master-photo-box">
@@ -538,7 +533,7 @@
   <!-- ==========================================
        FAQ ВОПРОСЫ И ОТВЕТЫ
        ========================================== -->
-  <section class="section">
+  <section class="section" id="faq">
     <div class="container">
       <div class="section-header-center">
         <span class="section-tag">FAQ</span>
@@ -652,37 +647,13 @@
       <button class="modal-close-trigger js-close-modal">✕</button>
       <h3 style="font-size: 1.35rem; font-weight: 900; color: #0f172a; margin-bottom: 6px;" id="modalServiceTitle">Бесплатная консультация</h3>
       <p style="font-size: 0.875rem; color: #64748b; margin-bottom: 18px;">
-        Оставьте номер — Денис свяжется с вами в рабочее время и уточнит детали.
+        Свяжитесь с Денисом удобным способом — он лично уточнит детали и сориентирует по стоимости.
       </p>
 
-      <form id="modalCallbackForm">
-        <input type="hidden" id="serviceInputHidden" name="service" value="Реставрация ванны">
-        <div class="form-group-item">
-          <input type="tel" name="phone" class="form-input-field" placeholder="Ваш номер телефона" required>
-        </div>
-        <div class="form-group-item">
-          <input type="text" name="city" class="form-input-field" placeholder="Ваш город (Полоцк, Новополоцк, Лепель и др.)">
-        </div>
-        <button type="submit" class="btn btn-secondary btn-full btn-lg">
-          Получить консультацию
-        </button>
-      </form>
-    </div>
-  </div>
-
-  <!-- Модальное окно «Спасибо» -->
-  <div class="modal-overlay-backdrop" id="thankYouModal">
-    <div class="modal-box-card" style="text-align: center;">
-      <button class="modal-close-trigger js-close-modal">✕</button>
-      <div style="font-size: 2.8rem; margin-bottom: 8px;">✅</div>
-      <h3 style="font-size: 1.4rem; font-weight: 900; color: #2f735a; margin-bottom: 8px;">Спасибо, данные получены</h3>
-      <p style="font-size: 0.95rem; color: #64748b; margin-bottom: 20px;">
-        Денис свяжется с вами в рабочее время. Если вопрос срочный — позвоните напрямую.
-      </p>
-      <a href="tel:+375295119362" style="display: block; font-size: 1.2rem; font-weight: 900; color: #0284c7; margin-bottom: 16px;">
-        +375 (29) 511-93-62
-      </a>
-      <button class="btn btn-primary btn-full js-close-modal">Отлично</button>
+      <div class="contact-actions-stack">
+        <a href="tel:+375295119362" class="btn btn-secondary btn-full btn-lg">Позвонить: +375 (29) 511-93-62</a>
+        <a href="https://wa.me/375295119362" class="btn btn-outline btn-full" target="_blank" rel="noopener">Написать в WhatsApp</a>
+      </div>
     </div>
   </div>
 
