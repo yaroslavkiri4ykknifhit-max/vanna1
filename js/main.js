@@ -6,15 +6,11 @@
 // ==========================================================================
 // 1. НАСТРОЙКИ TELEGRAM БОТА И ЯНДЕКС.МЕТРИКИ
 // ==========================================================================
-// Вставьте токен вашего бота от @BotFather и Chat ID от @userinfobot:
 const TELEGRAM_BOT_TOKEN = "8916835543:AAF24vf6lErIoS7VS6768LuOK5c6MCP_HjU";
 const TELEGRAM_CHAT_ID = "2117489924";
 
 const YANDEX_METRIKA_ID = 0; // Вставьте сюда номер счетчика Метрики
 
-/**
- * Отправка события цели в Яндекс.Метрику
- */
 function trackGoal(goalName) {
   try {
     if (typeof ym === 'function' && YANDEX_METRIKA_ID > 0) {
@@ -32,15 +28,13 @@ function trackGoal(goalName) {
  * Прямая отправка заявки в Telegram бота без сервера
  */
 async function sendLeadToTelegram(leadData) {
-  // Сохраняем локально в историю
   try {
     const leads = JSON.parse(localStorage.getItem('vanna_leads') || '[]');
     leads.push({ ...leadData, date: new Date().toISOString() });
     localStorage.setItem('vanna_leads', JSON.stringify(leads));
   } catch (e) {}
 
-  if (!TELEGRAM_BOT_TOKEN || TELEGRAM_BOT_TOKEN.includes("XXXXX") || !TELEGRAM_CHAT_ID || TELEGRAM_CHAT_ID === "YOUR_CHAT_ID") {
-    console.log("[Telegram Demo Mode]: Заявка сохранена локально. Для получения в TG укажите TELEGRAM_BOT_TOKEN и TELEGRAM_CHAT_ID в js/main.js", leadData);
+  if (!TELEGRAM_BOT_TOKEN || !TELEGRAM_CHAT_ID) {
     return true;
   }
 
@@ -49,9 +43,9 @@ async function sendLeadToTelegram(leadData) {
     `📞 <b>Телефон:</b> <code>${leadData.phone || 'Не указан'}</code>\n` +
     `👤 <b>Имя:</b> ${leadData.name || 'Не указано'}\n` +
     `📍 <b>Город/Адрес:</b> ${leadData.city || 'Не указан'}\n` +
-    `📐 <b>Размер ванны:</b> ${leadData.bathSize || '1.2–1.5 м'}\n` +
-    `🛠 <b>Состояние:</b> ${leadData.bathState || 'Заводская'}\n` +
-    `💰 <b>Расчет цены:</b> ${leadData.estimatedPrice || 'от 200 BYN'}\n` +
+    `📐 <b>Размер ванны:</b> ${leadData.bathSize || '—'}\n` +
+    `🛠 <b>Состояние:</b> ${leadData.bathState || '—'}\n` +
+    `💰 <b>Расчет цены:</b> ${leadData.estimatedPrice || '—'}\n` +
     `📋 <b>Источник:</b> ${leadData.source || 'Форма на сайте'}\n` +
     `⏰ <b>Время:</b> ${new Date().toLocaleString('ru-RU', { timeZone: 'Europe/Minsk' })}`;
 
@@ -97,7 +91,7 @@ document.addEventListener('DOMContentLoaded', () => {
   openCallbackBtns.forEach(btn => {
     btn.addEventListener('click', (e) => {
       e.preventDefault();
-      const serviceName = btn.getAttribute('data-service') || 'Бесплатная консультация';
+      const serviceName = btn.getAttribute('data-service') || 'Консультация мастера';
       const titleEl = document.getElementById('modalServiceTitle');
       const inputEl = document.getElementById('serviceInputHidden');
       if (titleEl) titleEl.textContent = `Заказ: ${serviceName}`;
@@ -127,13 +121,13 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // ==========================================================================
-  // 3. Экспресс-калькулятор стоимости в первом экране (Hero)
+  // 3. Экспресс-калькулятор стоимости в Hero
   // ==========================================================================
   const calcPriceDisplay = document.getElementById('heroCalcPrice');
-  const calcRadios = document.querySelectorAll('#heroFastCalcForm input[type="radio"]');
+  const calcRadios = document.querySelectorAll('#heroCalculator input[type="radio"]');
 
   function calculateHeroPrice() {
-    let base = 200; // Базовая цена от 200 руб за ванну 1.2-1.5м
+    let base = 200; // Базовая цена от 200 руб за 1.2-1.5м
 
     const length = document.querySelector('input[name="bathLength"]:checked');
     const condition = document.querySelector('input[name="bathCondition"]:checked');
@@ -145,7 +139,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (condition) {
       if (condition.value === 'painted') base += 30; // снятие старого покрытия
-      else if (condition.value === 'bad') base += 15; // глубокие сколы / ржавчина
+      else if (condition.value === 'bad') base += 15; // глубокие сколы
     }
 
     if (calcPriceDisplay) {
@@ -191,7 +185,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // ==========================================================================
-  // 5. Обработка отправки форм и отправка в Telegram Бот
+  // 5. Обработка форм и отправка в Telegram
   // ==========================================================================
   
   // 5.1 Форма калькулятора в Hero
@@ -205,8 +199,8 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
       }
 
-      const lengthVal = heroForm.querySelector('input[name="bathLength"]:checked')?.value;
-      const condVal = heroForm.querySelector('input[name="bathCondition"]:checked')?.value;
+      const lengthVal = document.querySelector('input[name="bathLength"]:checked')?.value;
+      const condVal = document.querySelector('input[name="bathCondition"]:checked')?.value;
       
       const lengthLabels = { "1.5": "1.2–1.5 м", "1.7": "1.7 м", "corner": "Угловая" };
       const condLabels = { "standard": "Заводская эмаль", "bad": "Сколы / Ржавчина", "painted": "Красилась ранее" };
@@ -219,10 +213,9 @@ document.addEventListener('DOMContentLoaded', () => {
         bathSize: lengthLabels[lengthVal] || lengthVal,
         bathState: condLabels[condVal] || condVal,
         estimatedPrice: estimatedPrice,
-        source: 'Экспресс-калькулятор на первом экране'
+        source: 'Калькулятор в шапке'
       };
 
-      // Отправляем в Telegram
       await sendLeadToTelegram(leadData);
       trackGoal('hero_calc_submit');
 
@@ -232,7 +225,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 5.2 Форма консультации в боковом блоке
+  // 5.2 Форма консультации в блоке "Наши работы"
   const sideForm = document.getElementById('sideDirectForm');
   if (sideForm) {
     sideForm.addEventListener('submit', async (e) => {
@@ -248,7 +241,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const leadData = {
         phone: phoneInput ? phoneInput.value : '',
         name: nameInput ? nameInput.value : 'Не указано',
-        source: 'Блок бесплатной консультации'
+        source: 'Блок оценки ванны'
       };
 
       await sendLeadToTelegram(leadData);
@@ -265,7 +258,6 @@ document.addEventListener('DOMContentLoaded', () => {
     modalForm.addEventListener('submit', async (e) => {
       e.preventDefault();
       const phoneInput = modalForm.querySelector('input[name="phone"]');
-      const cityInput = modalForm.querySelector('input[name="city"]');
       const serviceInput = modalForm.querySelector('input[name="service"]');
 
       if (phoneInput && phoneInput.value.length < 17) {
@@ -275,8 +267,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const leadData = {
         phone: phoneInput ? phoneInput.value : '',
-        city: cityInput ? cityInput.value : 'Не указан',
-        source: `Модальное окно: ${serviceInput ? serviceInput.value : 'Заказ звонка'}`
+        source: `Модальное окно: ${serviceInput ? serviceInput.value : 'Консультация'}`
       };
 
       await sendLeadToTelegram(leadData);
@@ -288,35 +279,35 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // ==========================================================================
+  // ==========================================
   // 6. FAQ Аккордеон
-  // ==========================================================================
-  const faqItems = document.querySelectorAll('.faq-entry');
+  // ==========================================
+  const faqItems = document.querySelectorAll('.faq-row-item');
   faqItems.forEach(item => {
-    const header = item.querySelector('.faq-entry-header');
-    const body = item.querySelector('.faq-entry-body');
+    const trigger = item.querySelector('.faq-toggle-trigger');
+    const drawer = item.querySelector('.faq-drawer-content');
 
-    if (header && body) {
-      header.addEventListener('click', () => {
+    if (trigger && drawer) {
+      trigger.addEventListener('click', () => {
         const isActive = item.classList.contains('active');
 
         faqItems.forEach(other => {
           other.classList.remove('active');
-          const otherBody = other.querySelector('.faq-entry-body');
-          if (otherBody) otherBody.style.maxHeight = null;
+          const otherDrawer = other.querySelector('.faq-drawer-content');
+          if (otherDrawer) otherDrawer.style.maxHeight = null;
         });
 
         if (!isActive) {
           item.classList.add('active');
-          body.style.maxHeight = body.scrollHeight + 'px';
+          drawer.style.maxHeight = drawer.scrollHeight + 'px';
         }
       });
     }
   });
 
-  // ==========================================================================
+  // ==========================================
   // 7. Трекинг контактов
-  // ==========================================================================
+  // ==========================================
   document.querySelectorAll('a[href^="tel:"]').forEach(link => {
     link.addEventListener('click', () => trackGoal('click_phone'));
   });
