@@ -1,9 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
-  <rect width="64" height="64" rx="16" fill="#0284c7"/>
+  <rect width="64" height="64" rx="16" fill="#24463D"/>
   <path d="M12 28C12 26.8954 12.8954 26 14 26H50C51.1046 26 52 26.8954 52 28V33C52 42.9411 43.9411 51 34 51H30C20.0589 51 12 42.9411 12 33V28Z" fill="#FFFFFF"/>
   <path d="M18 51L15 57M46 51L49 57" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round"/>
   <path d="M46 14V22M46 14C46 12.8954 45.1046 12 44 12H42C40.8954 12 40 12.8954 40 14V16" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
-  <!-- Sparkles -->
-  <path d="M22 17L23.5 21.5L28 23L23.5 24.5L22 29L20.5 24.5L16 23L20.5 21.5L22 17Z" fill="#38bdf8"/>
-  <circle cx="34" cy="18" r="2.5" fill="#bae6fd"/>
+  <path d="M22 17L23.5 21.5L28 23L23.5 24.5L22 29L20.5 24.5L16 23L20.5 21.5L22 17Z" fill="#DDA16D"/>
+  <circle cx="34" cy="18" r="2.5" fill="#F2D1B5"/>
 </svg>
