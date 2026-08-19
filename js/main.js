@@ -7,8 +7,8 @@
 // 1. НАСТРОЙКИ TELEGRAM БОТА И ЯНДЕКС.МЕТРИКИ
 // ==========================================================================
 // Вставьте токен вашего бота от @BotFather и Chat ID от @userinfobot:
-const TELEGRAM_BOT_TOKEN = "7976865672:AAEmv2B_tP8-L_XXXXXXXXX"; // Замените на токен вашего бота
-const TELEGRAM_CHAT_ID = "YOUR_CHAT_ID"; // Замените на ваш Telegram Chat ID
+const TELEGRAM_BOT_TOKEN = "8916835543:AAF24vf6lErIoS7VS6768LuOK5c6MCP_HjU";
+const TELEGRAM_CHAT_ID = "2117489924";
 
 const YANDEX_METRIKA_ID = 0; // Вставьте сюда номер счетчика Метрики
 
