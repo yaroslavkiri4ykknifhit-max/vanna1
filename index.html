@@ -413,62 +413,97 @@
         </p>
       </div>
 
-      <div class="works-gallery-grid">
-        <!-- Работа 1 -->
-        <div class="work-item-card">
-          <div class="work-item-media">
-            <img src="images/work-real-1.png" alt="Реставрация ржавой чугунной ванны наливным акрилом в Полоцке" loading="lazy">
-            <div class="work-item-badge">Чугунная ванна 1.5 м</div>
+      <!-- Карусель выполненных работ (без обрезки фотографий) -->
+      <div class="works-carousel-container">
+        <button class="carousel-arrow-btn prev-arrow" id="prevWorkBtn" aria-label="Предыдущее фото">‹</button>
+        
+        <div class="works-carousel-track" id="worksCarouselTrack">
+          <!-- Слайд 1 -->
+          <div class="work-carousel-slide">
+            <div class="work-slide-card">
+              <div class="work-slide-media">
+                <img src="images/work-real-1.png" alt="Реставрация сильно ржавой чугунной ванны наливным акрилом — фото До и После" class="work-uncropped-img" loading="lazy">
+              </div>
+              <div class="work-slide-info">
+                <div class="work-slide-meta">
+                  <span class="work-meta-badge">Чугунная ванна 1.5 м</span>
+                  <span class="work-meta-counter">Работа 1 из 4</span>
+                </div>
+                <h3 class="work-slide-heading">Застарелая ржавчина и водный камень</h3>
+                <p class="work-slide-text">
+                  Глубокая зачистка с профессиональным строительным пылесосом, удаление въевшейся ржавчины и заливка жидким акрилом «Люкс».
+                </p>
+              </div>
+            </div>
           </div>
-          <div class="work-item-content">
-            <h3 class="work-item-title">Застарелая ржавчина и налёт</h3>
-            <p class="work-item-desc">
-              Зачистка с профессиональным пылесосом, химическое удаление водного камня и заливка акрилом «Люкс» толщиной до 6 мм.
-            </p>
+
+          <!-- Слайд 2 -->
+          <div class="work-carousel-slide">
+            <div class="work-slide-card">
+              <div class="work-slide-media">
+                <img src="images/work-real-2.jpg" alt="Восстановление старой облезлой ванны со сколами — фото До и После" class="work-uncropped-img" loading="lazy">
+              </div>
+              <div class="work-slide-info">
+                <div class="work-slide-meta">
+                  <span class="work-meta-badge">Стальная ванна 1.7 м</span>
+                  <span class="work-meta-counter">Работа 2 из 4</span>
+                </div>
+                <h3 class="work-slide-heading">Облезлая эмаль и глубокие сколы</h3>
+                <p class="work-slide-text">
+                  Полное снятие старой шелушащейся краски, армирование и шпатлевка сколов, нанесение белоснежного зеркального слоя.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Слайд 3 -->
+          <div class="work-carousel-slide">
+            <div class="work-slide-card">
+              <div class="work-slide-media">
+                <img src="images/work-real-3.png" alt="Реставрация пожелтевшей ванны наливным акрилом — фото До и После" class="work-uncropped-img" loading="lazy">
+              </div>
+              <div class="work-slide-info">
+                <div class="work-slide-meta">
+                  <span class="work-meta-badge">Чугунная ванна 1.5 м</span>
+                  <span class="work-meta-counter">Работа 3 из 4</span>
+                </div>
+                <h3 class="work-slide-heading">Желтизна, пористость и микротрещины</h3>
+                <p class="work-slide-text">
+                  Обезжиривание, механическое устранение шероховатостей. Идеально гладкая глянцевая ванна, которая легко моется мыльной губкой.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Слайд 4 -->
+          <div class="work-carousel-slide">
+            <div class="work-slide-card">
+              <div class="work-slide-media">
+                <img src="images/work-real-4.png" alt="Реставрация гидромассажной ванны джакузи — фото До и После" class="work-uncropped-img" loading="lazy">
+              </div>
+              <div class="work-slide-info">
+                <div class="work-slide-meta">
+                  <span class="work-meta-badge">Угловая джакузи</span>
+                  <span class="work-meta-counter">Работа 4 из 4</span>
+                </div>
+                <h3 class="work-slide-heading">Гидромассажная ванна сложной формы</h3>
+                <p class="work-slide-text">
+                  Восстановление анатомической чаши с аккуратным сохранением всех встроенных форсунок и переливов. Заводской вид.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
 
-        <!-- Работа 2 -->
-        <div class="work-item-card">
-          <div class="work-item-media">
-            <img src="images/work-real-2.jpg" alt="Восстановление старой облезлой ванны со сколами жидким акрилом" loading="lazy">
-            <div class="work-item-badge">Стальная ванна 1.7 м</div>
-          </div>
-          <div class="work-item-content">
-            <h3 class="work-item-title">Облезлая эмаль и сколы</h3>
-            <p class="work-item-desc">
-              Полное удаление старой краски, армирование сколов, обеспыливание и нанесение глянцевого белоснежного слоя.
-            </p>
-          </div>
-        </div>
+        <button class="carousel-arrow-btn next-arrow" id="nextWorkBtn" aria-label="Следующее фото">›</button>
+      </div>
 
-        <!-- Работа 3 -->
-        <div class="work-item-card">
-          <div class="work-item-media">
-            <img src="images/work-real-3.png" alt="Реставрация пожелтевшей ванны наливным акрилом в Новополоцке" loading="lazy">
-            <div class="work-item-badge">Чугунная ванна 1.5 м</div>
-          </div>
-          <div class="work-item-content">
-            <h3 class="work-item-title">Желтизна и шероховатость</h3>
-            <p class="work-item-desc">
-              Обезжиривание, устранение пор и микротрещин. Идеально гладкая поверхность, которую легко мыть обычным мылом.
-            </p>
-          </div>
-        </div>
-
-        <!-- Работа 4 -->
-        <div class="work-item-card">
-          <div class="work-item-media">
-            <img src="images/work-real-4.png" alt="Реставрация гидромассажной ванны джакузи жидким акрилом" loading="lazy">
-            <div class="work-item-badge">Угловая джакузи</div>
-          </div>
-          <div class="work-item-content">
-            <h3 class="work-item-title">Гидромассажная ванна</h3>
-            <p class="work-item-desc">
-              Восстановление сложной формы с сохранением всех форсунок. Ровное прочное покрытие без разводов.
-            </p>
-          </div>
-        </div>
+      <!-- Точки пагинации карусели -->
+      <div class="carousel-dots-row" id="worksDotsNav">
+        <button class="carousel-dot-btn active" data-index="0" aria-label="Слайд 1"></button>
+        <button class="carousel-dot-btn" data-index="1" aria-label="Слайд 2"></button>
+        <button class="carousel-dot-btn" data-index="2" aria-label="Слайд 3"></button>
+        <button class="carousel-dot-btn" data-index="3" aria-label="Слайд 4"></button>
       </div>
 
       <!-- Блок оценки и быстрой консультации -->

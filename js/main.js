@@ -323,4 +323,48 @@ document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('a[href*="wa.me"]').forEach(link => {
     link.addEventListener('click', () => trackGoal('click_whatsapp'));
   });
+
+  // ==========================================
+  // 8. Карусель выполненных работ
+  // ==========================================
+  const carouselTrack = document.getElementById('worksCarouselTrack');
+  const prevWorkBtn = document.getElementById('prevWorkBtn');
+  const nextWorkBtn = document.getElementById('nextWorkBtn');
+  const dotBtns = document.querySelectorAll('.carousel-dot-btn');
+
+  if (carouselTrack) {
+    const updateActiveDot = () => {
+      const scrollPosition = carouselTrack.scrollLeft;
+      const slideWidth = carouselTrack.clientWidth;
+      const activeIdx = Math.round(scrollPosition / slideWidth);
+      dotBtns.forEach((dot, idx) => {
+        dot.classList.toggle('active', idx === activeIdx);
+      });
+    };
+
+    if (prevWorkBtn) {
+      prevWorkBtn.addEventListener('click', () => {
+        carouselTrack.scrollBy({ left: -carouselTrack.clientWidth, behavior: 'smooth' });
+      });
+    }
+
+    if (nextWorkBtn) {
+      nextWorkBtn.addEventListener('click', () => {
+        carouselTrack.scrollBy({ left: carouselTrack.clientWidth, behavior: 'smooth' });
+      });
+    }
+
+    dotBtns.forEach(dot => {
+      dot.addEventListener('click', () => {
+        const index = parseInt(dot.getAttribute('data-index') || '0', 10);
+        carouselTrack.scrollTo({ left: index * carouselTrack.clientWidth, behavior: 'smooth' });
+      });
+    });
+
+    let scrollDebounce;
+    carouselTrack.addEventListener('scroll', () => {
+      clearTimeout(scrollDebounce);
+      scrollDebounce = setTimeout(updateActiveDot, 50);
+    });
+  }
 });
