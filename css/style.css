@@ -1951,247 +1951,260 @@ body { font-size: var(--body-size); line-height: 1.55; }
   .faq-toggle-trigger { font-size: .9rem; line-height: 1.35; }
 }
 
-
 /* ========================================================================
-    :  ,  ,  
+   Finish pass: softer surfaces, calmer hierarchy, premium tactility
    ======================================================================== */
-: {.     --: #;
-     --: #;
-     ---: #419. 
-    ---: #72. 
-    --: #5440;
-     ---: #333. 
-    --: #292831;
-     ---: #65616. 
-    ---: 22;
-     ---: 14;
-  }
+:root {
+  --canvas: #fbfaff;
+  --surface: #ffffff;
+  --surface-soft: #f4f1f9;
+  --line-soft: #e7e2ed;
+  --signal: #d54b40;
+  --signal-dark: #bd3c33;
+  --ink: #292831;
+  --ink-soft: #65616d;
+  --radius-card: 22px;
+  --radius-small: 14px;
+}
 
- { : (--); }
-    {
-  : (--). 
-    ---: ;
-     -: ;
-   }
+html { background: var(--canvas); }
+body {
+  background: var(--canvas);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
 
-   .- {
-        : (251, 250, 255, .9);
-        -: (16);
-        -: 1  (231, 226, 237, .8);
-      }
-      .-- {
-           : (--);
-           : 1  #55;
-           -: 11;
-           -: 0 5 14 (44, 36, 56, .08);
-      }
-   .- {
-        : (255, 255, 255, .72);
-        : 1  (228, 223, 235, .82);
-        -: 999;
-        : 4;
-        : 5;
-      }
-      .-  {.             -: 999;
-             : 8 11;
-             : - .2 ,  .2 ;
-           }
-           .- : { : #16; : (--); }
-      .-- { -: 50%; }
+.site-navbar {
+  background: rgba(251, 250, 255, .9);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(231, 226, 237, .8);
+}
+.brand-icon-wrap {
+  background: var(--surface);
+  border: 1px solid #dcd5e5;
+  border-radius: 11px;
+  box-shadow: 0 5px 14px rgba(44, 36, 56, .08);
+}
+.main-nav {
+  background: rgba(255, 255, 255, .72);
+  border: 1px solid rgba(228, 223, 235, .82);
+  border-radius: 999px;
+  gap: 4px;
+  padding: 5px;
+}
+.main-nav a {
+  border-radius: 999px;
+  padding: 8px 11px;
+  transition: background-color .2s ease, color .2s ease;
+}
+.main-nav a:hover { background: #f1edf6; color: var(--signal); }
+.messenger-round-btn { border-radius: 50%; }
 
-           .- {.                :
-                   -(  76% 18%, (255,255,255,.96) 0 9%.  26%),
-                   -(  5% 70%, (232,222,240,.7) 0 5%,  19%),
-                   -(130, #97 0%, #418 52%, #9 100%);
-               }
-               .-:: { -: (255,255,255,.78); }
-               .-,
-               .-,
-               .--,
-               .-- {.                    -: ;
-                    }
-                    .- {.                         -: 800;
-                          -: -.05;
-                        }
-                        .-- { : (--); }
-                    .-- {
-                         : (255,255,255,.66);
-                         : 1  #73;
-                         -: 3  (--);
-                         -: 999;
-                         -: 0 5 12 (56,43,68,.04). 
-                        : 7 13;
-                       }
-                       .- { : #595662; }
-                           .-- {
-                            : (255,255,255,.62);
-                            : 1  (227,220,234,.84);
-                            -: 18;
-                            : ;
-                            : 8 0;
-                          }
-                          .-- { -: #509; : 7 14; }
+.hero-section {
+  background:
+    radial-gradient(circle at 76% 18%, rgba(255,255,255,.96) 0 9%, transparent 26%),
+    radial-gradient(circle at 5% 70%, rgba(232,222,240,.7) 0 5%, transparent 19%),
+    linear-gradient(130deg, #f9f7fc 0%, #f4f1f8 52%, #faf9fd 100%);
+}
+.hero-section::before { border-color: rgba(255,255,255,.78); }
+.hero-title,
+.section-title,
+.service-box-title,
+.consultation-form-title {
+  text-transform: none;
+}
+.hero-title {
+  font-weight: 800;
+  letter-spacing: -.05em;
+}
+.hero-title-gradient { color: var(--signal); }
+.hero-pill-badge {
+  background: rgba(255,255,255,.66);
+  border: 1px solid #e7dce3;
+  border-left: 3px solid var(--signal);
+  border-radius: 999px;
+  box-shadow: 0 5px 12px rgba(56,43,68,.04);
+  padding: 7px 13px;
+}
+.hero-description { color: #595662; }
+.hero-meta-stats {
+  background: rgba(255,255,255,.62);
+  border: 1px solid rgba(227,220,234,.84);
+  border-radius: 18px;
+  overflow: hidden;
+  padding: 8px 0;
+}
+.hero-stat-box { border-color: #e5e0e9; padding: 7px 14px; }
 
-                               .- {
-                                    : 1  (255,255,255,.9);
-                                    -: 28 28 78 28;
-                                    -: 0 24 48 (48,38,59,.15);
-                                  }
-                                  .-:: {.                                         : -(180,  35%, (37,33,43,.22)). 
-                                         : "";
-                                          : 0. 
-                                         -: ;
-                                          : ;
-                                          -: 3;
-                                        }
-                                        .-:: { -: (255,255,255,.92); }
-                                              .- { -: (213,75,64,.28); }
-                                  .-- {.                                       : 1  (230,224,235,.92);
-                                         -: (---). 
-                                        -: 0 22 50 (42,34,51,.15), 0 3 10 (42,34,51,.04);
-                                       }
-                                       .-- { -: 0 8 18 (213,75,64,.26); }
-                                       .-- { : ; }
-                                            .-- { -: 10; }
-                                                 .-- [=""]: + .-- { -: 0 5 12 (213,75,64,.16); }
-                                       .-- { -: 12; }
-                                            . {.                                                 -: 0 7 14 (213,75,64,.14);
-                                                 :  .2 , - .2 , - .2 ;
-                                               }
-                                               .-:,.-: { -: 0 10 20 (189,60,51,.24); : (-2); }
-                                       .- { : #; -: ; }
-                                           .-: { : #739; }
+.hero-visual {
+  border: 1px solid rgba(255,255,255,.9);
+  border-radius: 28px 28px 78px 28px;
+  box-shadow: 0 24px 48px rgba(48,38,59,.15);
+}
+.hero-visual::after {
+  background: linear-gradient(180deg, transparent 35%, rgba(37,33,43,.22));
+  content: "";
+  inset: 0;
+  pointer-events: none;
+  position: absolute;
+  z-index: 3;
+}
+.hero-visual::before { border-color: rgba(255,255,255,.92); }
+.hero-orbit { border-color: rgba(213,75,64,.28); }
+.hero-form-card {
+  border: 1px solid rgba(230,224,235,.92);
+  border-radius: var(--radius-card);
+  box-shadow: 0 22px 50px rgba(42,34,51,.15), 0 3px 10px rgba(42,34,51,.04);
+}
+.hero-form-badge { box-shadow: 0 8px 18px rgba(213,75,64,.26); }
+.form-radio-card { overflow: hidden; }
+.radio-content-box { border-radius: 10px; }
+.form-radio-card input[type="radio"]:checked + .radio-content-box { box-shadow: 0 5px 12px rgba(213,75,64,.16); }
+.calc-price-result { border-radius: 12px; }
+.btn {
+  box-shadow: 0 7px 14px rgba(213,75,64,.14);
+  transition: transform .2s ease, box-shadow .2s ease, background-color .2s ease;
+}
+.btn-primary:hover,.btn-secondary:hover { box-shadow: 0 10px 20px rgba(189,60,51,.24); transform: translateY(-2px); }
+.btn-outline { background: #fff; box-shadow: none; }
+.btn-outline:hover { background: #f7f3f9; }
 
-                                                .-- { : (--); -: 52; }
-                                                     .-- {
-                                                     : (255,255,255,.78). 
-                                                    : 1  (---);
-                                                     -: 18;
-                                                     -: 0 10 28 (50,40,60,.06);
-                                                     : ;
-                                                   }
-                                                   .-- { : 21 28; }
-                                                        .--- { : #42; : 0; -:  0 0 0 1 #251; }
+.trust-strip-wrapper { background: var(--canvas); padding-bottom: 52px; }
+.trust-strip-card {
+  background: rgba(255,255,255,.78);
+  border: 1px solid var(--line-soft);
+  border-radius: 18px;
+  box-shadow: 0 10px 28px rgba(50,40,60,.06);
+  overflow: hidden;
+}
+.trust-strip-item { padding: 21px 28px; }
+.trust-strip-icon-box { background: #fff4f2; border: 0; box-shadow: inset 0 0 0 1px #f2d5d1; }
 
-                                                              .- { : (--); }
-                                                              .- {
-                                                                   : ;
-                                                                   -: ;
-                                                                   : 18;
-                                                                 }
-                                                                 .-- {
-                                                                      : #. 
-                                                                     : 1  (---);
-                                                                      -: (---);
-                                                                      -: 0 10 26 (46,35,57,.07). 
-                                                                     : ;
-                                                                      :  .22 , - .22 ;
-                                                                    }
-                                                                    .--:- {
-                                                                         : -(145, #54 0%, #94238 100%). 
-                                                                        : 0;
-                                                                         -: 0 15 32 (201,66,56,.23);
-                                                                    }
-                                                              .--: {
-                                                                   -: #32;
-                                                                   -: 0 18 35 (46,35,57,.12). 
-                                                                  : (-6);
-                                                              }
-                                                              .--:-: { -: 0 20 38 (201,66,56,.3); }
-                                                                      .-- { -: 30; }
-                                                                           .-- { -: 30; -: 30; }
-                                                                                .-- . { -: 12; }
+.services-section { background: var(--surface); }
+.services-container {
+  background: transparent;
+  box-shadow: none;
+  gap: 18px;
+}
+.service-box-card {
+  background: #fff;
+  border: 1px solid var(--line-soft);
+  border-radius: var(--radius-card);
+  box-shadow: 0 10px 26px rgba(46,35,57,.07);
+  overflow: hidden;
+  transition: transform .22s ease, box-shadow .22s ease;
+}
+.service-box-card:first-child {
+  background: linear-gradient(145deg, #df5a4e 0%, #c94238 100%);
+  border: 0;
+  box-shadow: 0 15px 32px rgba(201,66,56,.23);
+}
+.service-box-card:hover {
+  border-color: #ddd3e2;
+  box-shadow: 0 18px 35px rgba(46,35,57,.12);
+  transform: translateY(-6px);
+}
+.service-box-card:first-child:hover { box-shadow: 0 20px 38px rgba(201,66,56,.3); }
+.service-box-photo { padding-left: 30px; }
+.service-box-content { padding-left: 30px; padding-right: 30px; }
+.service-box-card .btn { border-radius: 12px; }
 
-                                                                                       .- {
-                                                                                            : -(130, #62 0%, # 100%);
-                                                                                            : 1  (---);
-                                                                                            -: (---);
-                                                                                            -: 0 10 25 (45,34,56,.05);
-                                                                                            : ;
-                                                                                            : 0;
-                                                                                          }
-                                                                                          .- { -: #70; }
-                                                                                              .-- {
-                                                                                                 -: ;
-                                                                                                 : #;
-                                                                                                 : 1  #163;
-                                                                                                 -: 10. 
-                                                                                                -: 0 4 10 (213,75,64,.08). 
-                                                                                                : ;
-                                                                                                 : 38. 
-                                                                                                -: ;
-                                                                                                 : 38;
-                                                                                               }
+.advantages-row {
+  background: linear-gradient(130deg, #f6f2fa 0%, #fcfbfe 100%);
+  border: 1px solid var(--line-soft);
+  border-radius: var(--radius-card);
+  box-shadow: 0 10px 25px rgba(45,34,56,.05);
+  overflow: hidden;
+  padding: 0;
+}
+.advantage-cell { border-color: #e7e0ec; }
+.advantage-icon-circle {
+  align-items: center;
+  background: #fff;
+  border: 1px solid #f1d6d3;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(213,75,64,.08);
+  display: flex;
+  height: 38px;
+  justify-content: center;
+  width: 38px;
+}
 
-                                                                                               # { : -(180, #74 0%, # 100%); }
-                                                                                               .--,
-                                                                                               .-- {.                                                                                                    : 1  (229,223,235,.92). 
-                                                                                                     -: (---);
-                                                                                                      -: 0 15 34 (45,35,55,.09);
-                                                                                                   }
-                                                                                               .--- { : 12; }
-                                                                                                     .- { -: 16; }
-                                                                                                         .-  { :  .4 ; }
-                                                                                                              .-:  { : (1.035); }
-                                                                                                     .-- { -: 9; : 10; : 10; }
-                                                                                                          .-- { : 4  #; -: 0 7 16 (38,31,45,.18); }
-                                                                                                               .-- { : -(145, # 0%, # 100%); }
-                                                                                                               
-                                                                                                     # { : -(130, #519 0%, # 100%) !; }
-                                                                                                               .-- {
-                                                                                                                    : (255,255,255,.68);
-                                                                                                                    : 1  (229,223,235,.9);
-                                                                                                                    -: (---);
-                                                                                                                    -: 0 16 35 (45,35,55,.07);
-                                                                                                                    : 36;
-                                                                                                                  }
-                                                                                                                  .-- {
-                                                                                                                         : -(145, # 0%, #7 100%);
-                                                                                                                         : 1  #50;
-                                                                                                                         -: 3  (--);
-                                                                                                                         -: 16. 
-                                                                                                                        -: 0 8 20 (48,37,58,.05);
-                                                                                                                       }
-                                                                                                                       .- { -: 20; -: 0 12 22 (213,75,64,.23); }
-                                                                                                                       .-- { : (255,255,255,.75); -: 14; }
-                                                                                                                            .-- { -: 999; -: 0 3 7 (46,36,55,.04); }
-                                                                                                                       
-                                                                                                                  # { : (--); }
-                                                                                                                       .-- {
-                                                                                                                            : 1  (---);
-                                                                                                                            -: (---);
-                                                                                                                            -: 0 12 28 (45,35,55,.06);
-                                                                                                                            : ;
-                                                                                                                          }
-                                                                                                                          .-- { :  .2 ; }
-                                                                                                                               .--: { : (--); }
-                                                                                                                               
-                                                                                                                          .- {
-                                                                                                                               : -(  90% 0%, #33746 0%, #27252 40%, #202126 100%);
-                                                                                                                               -: 32 32 0 0;
-                                                                                                                               -: 24;
-                                                                                                                             }
-                                                                                                                             .--- {.                                                                                                                                  : (255,255,255,.94);
-                                                                                                                                     -: (14);
-                                                                                                                                     -: 1  (224,217,231,.9);
-                                                                                                                                   }
-                                                                                                                                   
-                                                                                                                                   @ (-: 768) {
-                                                                                                                                 .--:- { -: 18 0. 0 18;}
-                                                                                                                                          .--:- { -: 0 18 18 0; }
-                                                                                                                                      }
-                                                                                                                               
-                                                                                                                          @ (-: 767) {
-                                                                                                                               .-- { -: 14; : 7 10; }
-                                                                                                                                      .-- { -: 14; }
-                                                                                                                                             .- { -: 22 22 55 22; }.                                                                                                                                                   .-- { -: 20; }.                                                                                                                                                                                                                                                                                                                              .-- { -: 16; }.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           .-- { -: 16; }.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     .-- { -: 16; -: 16; }.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         .-- { -: 18; }
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        .- { : 13; }
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              .- { -: 18; }
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    .-- { : 34; : 34.  }
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          .--,.-- { -: 18; }
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     .-- { -: 18; : 20.  }
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           .-- { -: 14; }
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  .-- {. -: 18;}
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         .- { -: 24. 24 00; }
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             }
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          
+#works { background: linear-gradient(180deg, #f7f4fb 0%, #fbfaff 100%); }
+.works-wrapper-box,
+.consultation-form-card {
+  border: 1px solid rgba(229,223,235,.92);
+  border-radius: var(--radius-card);
+  box-shadow: 0 15px 34px rgba(45,35,55,.09);
+}
+.side-by-side-photos { gap: 12px; }
+.photo-cell { border-radius: 16px; }
+.photo-cell img { transition: transform .4s ease; }
+.photo-cell:hover img { transform: scale(1.035); }
+.badge-tag-photo { border-radius: 9px; left: 10px; top: 10px; }
+.divider-circle-btn { border: 4px solid #fff; box-shadow: 0 7px 16px rgba(38,31,45,.18); }
+.consultation-form-card { background: linear-gradient(145deg, #fff 0%, #fcfafd 100%); }
+
+#master { background: linear-gradient(130deg, #f5f1f9 0%, #fbfaff 100%) !important; }
+.master-profile-card {
+  background: rgba(255,255,255,.68);
+  border: 1px solid rgba(229,223,235,.9);
+  border-radius: var(--radius-card);
+  box-shadow: 0 16px 35px rgba(45,35,55,.07);
+  padding: 36px;
+}
+.master-photo-box {
+  background: linear-gradient(145deg, #fff 0%, #faf7fc 100%);
+  border: 1px solid #eee5f0;
+  border-left: 3px solid var(--signal);
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(48,37,58,.05);
+}
+.master-monogram { border-radius: 20px; box-shadow: 0 12px 22px rgba(213,75,64,.23); }
+.npd-info-badge { background: rgba(255,255,255,.75); border-radius: 14px; }
+.city-pill-badge { border-radius: 999px; box-shadow: 0 3px 7px rgba(46,36,55,.04); }
+
+#faq { background: var(--surface); }
+.faq-box-wrap {
+  border: 1px solid var(--line-soft);
+  border-radius: var(--radius-card);
+  box-shadow: 0 12px 28px rgba(45,35,55,.06);
+  overflow: hidden;
+}
+.faq-toggle-trigger { transition: color .2s ease; }
+.faq-toggle-trigger:hover { color: var(--signal); }
+
+.main-footer {
+  background: radial-gradient(circle at 90% 0%, #3d3746 0%, #27252d 40%, #202126 100%);
+  border-radius: 32px 32px 0 0;
+  margin-top: 24px;
+}
+.mobile-sticky-action-bar {
+  background: rgba(255,255,255,.94);
+  backdrop-filter: blur(14px);
+  border-top: 1px solid rgba(224,217,231,.9);
+}
+
+@media (min-width: 768px) {
+  .trust-strip-item:first-child { border-radius: 18px 0 0 18px; }
+  .trust-strip-item:last-child { border-radius: 0 18px 18px 0; }
+}
+
+@media (max-width: 767px) {
+  .hero-pill-badge { border-radius: 14px; padding: 7px 10px; }
+  .hero-meta-stats { border-radius: 14px; }
+  .hero-visual { border-radius: 22px 22px 55px 22px; }
+  .hero-form-card { border-radius: 20px; }
+  .hero-form-badge { border-radius: 16px; }
+  .trust-strip-card { border-radius: 16px; }
+  .trust-strip-item { padding-left: 16px; padding-right: 16px; }
+  .service-box-card { border-radius: 18px; }
+  .services-container { gap: 13px; }
+  .advantages-row { border-radius: 18px; }
+  .advantage-icon-circle { height: 34px; width: 34px; }
+  .works-wrapper-box,.consultation-form-card { border-radius: 18px; }
+  .master-profile-card { border-radius: 18px; padding: 20px; }
+  .master-photo-box { border-radius: 14px; }
+  .faq-box-wrap { border-radius: 18px; }
+  .main-footer { border-radius: 24px 24px 0 0; }
+}
