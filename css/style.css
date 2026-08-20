@@ -2492,3 +2492,201 @@ body {
   .master-quote { font-size: 1.12rem; }
   .faq-box-wrap { border-radius: 14px; }
 }
+
+/* ========================================================================
+   Hero correction: a clear photo-first composition with no overlapping form
+   ======================================================================== */
+.site-navbar {
+  padding: 16px 0 19px;
+}
+
+.hero-section {
+  padding: 0 0 58px;
+}
+
+.hero-grid {
+  background: #dbe7d8;
+  display: block;
+  min-height: 548px;
+  overflow: hidden;
+  padding: 0;
+  position: relative;
+}
+
+.hero-side {
+  height: auto;
+  inset: 0;
+  min-height: 0;
+  position: absolute;
+  width: auto;
+  z-index: 0;
+}
+
+.hero-side::after {
+  background: linear-gradient(90deg, rgba(245, 249, 243, .98) 0%, rgba(245, 249, 243, .94) 39%, rgba(245, 249, 243, .42) 60%, rgba(245, 249, 243, .04) 100%);
+  content: "";
+  inset: 0;
+  position: absolute;
+  z-index: 2;
+}
+
+.hero-visual {
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  height: 100% !important;
+  inset: 0;
+  overflow: hidden;
+  position: absolute;
+  right: auto;
+  top: auto;
+  width: 100% !important;
+}
+
+.hero-visual::before,
+.hero-visual::after,
+.hero-orbit {
+  display: none !important;
+}
+
+.hero-visual img {
+  filter: none;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  width: 100%;
+}
+
+.hero-form-card {
+  display: none;
+}
+
+.hero-copy {
+  box-sizing: border-box;
+  max-width: 600px;
+  padding: 61px 36px 32px 63px !important;
+  position: relative;
+  width: 54%;
+  z-index: 3;
+}
+
+.hero-pill-badge {
+  color: #5d7758;
+  font-size: .66rem;
+  margin-bottom: 19px;
+}
+
+.hero-title {
+  color: #21382d;
+  font-size: clamp(2.75rem, 4.2vw, 4.1rem);
+  line-height: .99;
+  margin-bottom: 18px;
+  max-width: 530px;
+}
+
+.hero-title-gradient {
+  color: #78936f;
+}
+
+.hero-description {
+  color: #58675d;
+  font-size: .93rem;
+  line-height: 1.55;
+  margin-bottom: 22px;
+  max-width: 450px;
+}
+
+.hero-primary-action {
+  background: #78936f;
+  border: 0;
+  border-radius: 7px;
+  color: #fff;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: .69rem;
+  font-weight: 800;
+  letter-spacing: .035em;
+  padding: 13px 19px;
+  text-transform: uppercase;
+  transition: background-color .2s ease, transform .2s ease;
+}
+
+.hero-primary-action:hover {
+  background: #5f7d58;
+  transform: translateY(-1px);
+}
+
+.hero-key-benefits {
+  display: none;
+}
+
+.hero-meta-stats {
+  background: rgba(255,255,255,.66);
+  border: 1px solid rgba(216,228,213,.88);
+  border-radius: 12px;
+  gap: 0;
+  margin-top: 30px;
+  max-width: 490px;
+  padding: 12px 7px;
+}
+
+.hero-stat-box {
+  min-height: 42px;
+  padding: 0 9px;
+}
+
+.hero-stat-number {
+  color: #314735;
+  font-size: .87rem;
+}
+
+.hero-stat-lbl {
+  color: #77877a;
+  font-size: .59rem;
+}
+
+.trust-strip-wrapper {
+  display: none;
+}
+
+.intro-section {
+  padding-top: 26px;
+}
+
+.intro-photo-frame {
+  background: #dae6d8;
+  height: 248px;
+}
+
+.intro-photo-frame img {
+  object-position: 63% center;
+}
+
+.services-section {
+  padding-top: 54px !important;
+}
+
+@media (max-width: 900px) {
+  .hero-grid { min-height: 520px; }
+  .hero-copy { padding: 48px 30px 28px 42px !important; width: 60%; }
+  .hero-title { font-size: clamp(2.55rem, 5vw, 3.5rem); }
+  .hero-side::after { background: linear-gradient(90deg, rgba(245,249,243,.97) 0%, rgba(245,249,243,.88) 48%, rgba(245,249,243,.2) 82%, rgba(245,249,243,.04) 100%); }
+}
+
+@media (max-width: 620px) {
+  .hero-section { padding-bottom: 42px; }
+  .hero-grid { border-radius: 17px; min-height: 615px; }
+  .hero-side::after { background: linear-gradient(180deg, rgba(246,249,244,.98) 0%, rgba(246,249,244,.93) 46%, rgba(246,249,244,.43) 70%, rgba(246,249,244,.1) 100%); }
+  .hero-visual img { object-position: 58% center; }
+  .hero-copy { max-width: none; padding: 31px 22px 22px !important; width: 100%; }
+  .hero-pill-badge { font-size: .58rem; margin-bottom: 15px; }
+  .hero-title { font-size: clamp(2.35rem, 11.4vw, 3.05rem); line-height: .99; max-width: 360px; }
+  .hero-description { font-size: .84rem; max-width: 315px; }
+  .hero-primary-action { font-size: .61rem; padding: 12px 15px; }
+  .hero-meta-stats { margin-top: 22px; max-width: 330px; padding: 10px 5px; }
+  .hero-stat-box { min-height: 37px; padding: 0 6px; }
+  .hero-stat-number { font-size: .71rem; }
+  .hero-stat-lbl { font-size: .5rem; }
+  .intro-section { padding-top: 12px; }
+  .intro-photo-frame { height: 208px; }
+}
