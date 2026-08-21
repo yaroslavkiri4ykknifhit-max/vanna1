@@ -2276,24 +2276,35 @@ body {
 .main-nav { background: transparent; border: 0; gap: 20px; padding: 0; }
 .main-nav a { color: #5c685f; font-size: .7rem; font-weight: 750; padding: 6px 0; text-transform: uppercase; }
 .main-nav a:hover { background: none; color: var(--sage-deep); }
-.header-meta-group { gap: 14px; }
-.header-messengers-row { gap: 7px; display: flex; align-items: center; }
+.header-meta-group { gap: 14px; display: flex; align-items: center; }
+.header-messengers-row { gap: 8px; display: flex; align-items: center; }
 .messenger-round-btn {
-  height: 32px;
-  width: 32px;
-  display: flex;
+  height: 34px;
+  width: 34px;
+  min-height: 34px;
+  min-width: 34px;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  border-radius: 50%;
+  border-radius: 9px;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
   overflow: hidden;
   text-decoration: none;
+  box-shadow: 0 2px 7px rgba(0, 0, 0, 0.12);
+  padding: 0;
+  flex-shrink: 0;
 }
 .messenger-round-btn:hover {
   transform: translateY(-2px) scale(1.08);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.18);
 }
-.messenger-round-btn img { height: 32px; width: 32px; display: block; }
+.messenger-round-btn img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: inherit;
+}
 .header-phone-val { color: var(--forest); font-size: .95rem; letter-spacing: .02em; }
 .header-sub-cta { border: 0; color: var(--sage-deep); font-size: .63rem; font-weight: 800; letter-spacing: .055em; text-transform: uppercase; }
 
@@ -3245,17 +3256,29 @@ body {
 
   .mobile-mess-btn {
     align-items: center;
-    border-radius: 10px;
+    background: transparent !important;
+    border-radius: 11px;
+    box-shadow: 0 2px 7px rgba(0, 0, 0, 0.12);
     display: flex;
     flex-shrink: 0;
     height: 44px;
     justify-content: center;
+    overflow: hidden;
+    padding: 0;
     transition: transform 0.15s ease;
     width: 44px;
   }
 
+  .mobile-mess-btn img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    display: block;
+    border-radius: inherit;
+  }
+
   .mobile-mess-btn:active {
-    transform: scale(0.94);
+    transform: scale(0.92);
   }
 
   /* Бейджи городов в секции мастера */
