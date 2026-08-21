@@ -2250,11 +2250,16 @@ body {
 .top-trust-bar { display: none; }
 
 .site-navbar {
-  background: transparent;
-  border: 0;
-  box-shadow: none;
-  padding: 20px 0;
-  position: relative;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  background: rgba(238, 244, 237, 0.94);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(205, 220, 203, 0.85);
+  box-shadow: 0 4px 20px rgba(31, 52, 44, 0.05);
+  padding: 12px 0;
+  transition: all 0.25s ease;
 }
 .brand-block { gap: 10px; }
 .brand-icon-wrap {
@@ -2268,13 +2273,27 @@ body {
 .brand-icon-wrap img { height: 23px; width: 23px; }
 .brand-name { color: var(--forest); font-size: .91rem; font-weight: 850; letter-spacing: -.035em; text-transform: uppercase; }
 .brand-location { color: #738078; font-size: .66rem; font-weight: 650; letter-spacing: .02em; text-transform: uppercase; }
-.main-nav { background: transparent; border: 0; gap: 19px; padding: 0; }
-.main-nav a { color: #5c685f; font-size: .68rem; font-weight: 750; padding: 5px 0; text-transform: uppercase; }
+.main-nav { background: transparent; border: 0; gap: 20px; padding: 0; }
+.main-nav a { color: #5c685f; font-size: .7rem; font-weight: 750; padding: 6px 0; text-transform: uppercase; }
 .main-nav a:hover { background: none; color: var(--sage-deep); }
-.header-meta-group { gap: 10px; }
-.header-messengers-row { gap: 5px; }
-.messenger-round-btn { height: 27px; width: 27px; }
-.messenger-round-btn img { height: 27px; width: 27px; }
+.header-meta-group { gap: 14px; }
+.header-messengers-row { gap: 7px; display: flex; align-items: center; }
+.messenger-round-btn {
+  height: 32px;
+  width: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  overflow: hidden;
+  text-decoration: none;
+}
+.messenger-round-btn:hover {
+  transform: translateY(-2px) scale(1.08);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+.messenger-round-btn img { height: 32px; width: 32px; display: block; }
 .header-phone-val { color: var(--forest); font-size: .95rem; letter-spacing: .02em; }
 .header-sub-cta { border: 0; color: var(--sage-deep); font-size: .63rem; font-weight: 800; letter-spacing: .055em; text-transform: uppercase; }
 
@@ -2873,7 +2892,16 @@ body {
    Hero Section: четкая 2-колоночная композиция с реалистичным фото справа
    ======================================================================== */
 .site-navbar {
-  padding: 16px 0 19px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: rgba(238, 244, 237, 0.94);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(205, 220, 203, 0.85);
+  box-shadow: 0 4px 20px rgba(31, 52, 44, 0.05);
+  padding: 12px 0;
+  transition: all 0.25s ease;
 }
 
 .hero-section {
