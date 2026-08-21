@@ -2377,17 +2377,163 @@ body {
 .intro-link span { color: var(--sage-deep); font-size: 1.05rem; margin-left: 9px; }
 
 .services-section { background: transparent; padding-top: 64px !important; }
-.services-container { background: transparent; box-shadow: none; gap: 18px; grid-template-columns: repeat(3, 1fr); }
-.service-box-card,.service-box-card:first-child { background: rgba(255,255,255,.95); border: 1px solid #dbe6da; border-radius: 16px; box-shadow: 0 8px 22px rgba(46,65,49,.055); min-height: 0; overflow: hidden; }
-.service-box-card:hover,.service-box-card:first-child:hover { border-color: #bfcebD; box-shadow: 0 15px 30px rgba(46,65,49,.11); transform: translateY(-4px); }
-.service-box-photo { background: #e6efe4; height: 154px; overflow: hidden; padding: 0; }
-.service-box-photo::before { content: none !important; }
-.service-box-photo img { display: block; filter: saturate(.75); height: 100%; object-fit: cover; width: 100%; }
-.service-box-content { padding: 20px 21px 22px; }
-.service-box-title,.service-box-card:first-child .service-box-title { color: var(--forest); font-size: 1.18rem; letter-spacing: -.045em; line-height: 1.08; text-transform: uppercase; }
-.service-box-desc,.service-box-card:first-child .service-box-desc { color: var(--copy-soft); font-size: .81rem; line-height: 1.5; margin-top: 9px; }
-.service-box-price,.service-box-card:first-child .service-box-price { color: var(--sage-deep); font-size: .9rem; margin: 15px 0; }
-.service-box-card .btn,.service-box-card:first-child .btn { background: var(--sage-deep); border: 0; border-radius: 7px; color: #fff; min-height: 39px; }
+
+/* Карточка основной услуги: Наливной акрил «Люкс» */
+.services-single-wrap {
+  max-width: 920px;
+  margin: 0 auto;
+}
+
+.service-featured-card {
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid #d5e1d3;
+  border-radius: 22px;
+  box-shadow: 0 16px 38px rgba(43, 62, 46, 0.08);
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: minmax(300px, 0.92fr) minmax(0, 1.08fr);
+  transition: transform 0.22s ease, box-shadow 0.22s ease;
+}
+
+.service-featured-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 20px 44px rgba(43, 62, 46, 0.12);
+}
+
+.service-featured-media {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 320px;
+  background: #e6efe4;
+  overflow: hidden;
+}
+
+.service-featured-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.service-featured-card:hover .service-featured-media img {
+  transform: scale(1.03);
+}
+
+.service-featured-badge {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  background: var(--sage-deep);
+  color: #ffffff;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  padding: 6px 14px;
+  border-radius: 999px;
+  text-transform: uppercase;
+  box-shadow: 0 4px 12px rgba(83, 110, 76, 0.25);
+  z-index: 2;
+}
+
+.service-featured-content {
+  padding: 34px 36px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: #ffffff;
+}
+
+.service-featured-title {
+  color: var(--forest);
+  font-size: 1.55rem;
+  font-weight: 850;
+  letter-spacing: -0.045em;
+  line-height: 1.15;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+
+.service-featured-desc {
+  color: var(--copy-soft);
+  font-size: 0.88rem;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.service-features-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+
+.service-feature-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--forest);
+  font-size: 0.84rem;
+  font-weight: 700;
+}
+
+.service-feature-icon {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #edf5eb;
+  color: var(--sage-deep);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  flex-shrink: 0;
+}
+
+.service-featured-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  padding-top: 18px;
+  border-top: 1px solid #e7eee5;
+}
+
+.service-featured-price {
+  color: var(--forest);
+  font-size: 1.45rem;
+  font-weight: 850;
+  letter-spacing: -0.03em;
+}
+
+.service-featured-price span {
+  color: #7b8880;
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+
+@media (max-width: 850px) {
+  .service-featured-card {
+    grid-template-columns: 1fr;
+  }
+  .service-featured-media {
+    height: 230px;
+    min-height: 0;
+  }
+  .service-featured-content {
+    padding: 24px 22px;
+  }
+  .service-featured-title {
+    font-size: 1.35rem;
+  }
+  .service-featured-footer {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+}
 
 .advantages-row { background: rgba(255,255,255,.72); border: 1px solid #dce6db; border-radius: 17px; box-shadow: none; }
 .advantage-cell { border-color: #dce6db; min-height: 117px; padding: 22px 18px; }
